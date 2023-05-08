@@ -1,0 +1,22 @@
+<div class="subscription-section section-padding">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="subscribe-now">
+          <%- newsletter_subscribers %>
+          <form class="subscribe-form" id="subscribe_form" data-submit-btn-id="contact-add-btn-id" method="post" class="on_click_submit" role="form">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email*" />
+                <span class="input-group-btn">
+                  <button class="btn newsletter" id="news-letter-btn-id" type="button">subscribe</button>
+                </span>
+              </div>
+              <span id="email_error" class="mandat-star"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

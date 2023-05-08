@@ -1,0 +1,42 @@
+<% var faq = faq_list ? faq_list : [] %>
+
+<div class="gradient-wrapper">
+<%- faq_header %>
+  <section class="faq-section section-padding">
+    <div class="container">
+      <div class="accordion-item" id="faqaccordion">
+        <% faq && faq.length > 0 ? faq.map((faqItem, key) => { %>
+        <div class="card" >
+          <div class="card-header" id="headingOne<%= key%>">
+            <button
+              aria-controls="collapseOne<%= key%>"
+              aria-expanded="true"
+              class="btn accordion-button"
+              data-bs-target="#collapseOne<%= key%>"
+              data-bs-toggle="collapse"
+              type="button"
+            >
+              <%= faqItem.question ? faqItem.question : "N/A" %>
+            </button>
+          </div>
+
+          <div
+            aria-labelledby="headingOne<%= key%>"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#faqaccordion"
+            id="collapseOne<%= key%>"
+          >
+            <div class="card-body">
+              <p class="text-para">
+                <%- faqItem.faq_ans ? faqItem.faq_ans : "N/A" %>
+              </p>
+            </div>
+          </div>
+          <% }) : "" %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include("../../elements/newsletter.html");%>

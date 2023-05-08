@@ -1,0 +1,137 @@
+
+<%
+var statusType = (typeof status_type !== typeof undefined && status_type)   ?   status_type :"";
+var userType = (typeof user_type !== typeof undefined && user_type) ?   user_type :"";
+var productId = (typeof product_id !== typeof undefined && product_id) ?   product_id :"";
+%>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Product Places
+            </h2>
+        </div>
+        <div class="body">
+            <div class="row clearfix">
+                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                    <div class="panel-group full-body" id="accordion_18" role="tablist" aria-multiselectable="true">
+                        
+
+                        <form id="add-product-detail" data-submit-btn-id="product-add-detail-btn-id" method="post" class="on_click_submit" role="form">
+                            
+                        <%
+                        if(typeof result!== typeof undefined && result.length > 0){
+                            result.map((value, key)=>{
+                                %>
+                                
+                                <div class="panel panel-col-orange">
+                                    <div class="panel-heading" role="tab" id="headingFive_<%=key%>_18">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" id="<%=value._id%>" role="button" data-toggle="collapse" data-parent="#accordion_18" href="#collapseFive_<%=key%>_18" aria-expanded="false"
+                                               aria-controls="collapseFive_<%=key%>_18">
+                                                <%=value.name%>
+                                                
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFive_<%=key%>_18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_<%=key%>_18">
+                                        <div class="panel-body" id="body_content_<%=value._id%>">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <%      
+                            });
+                        } %>
+                        <button type="button"  id="product-add-detail-btn-id"  <%- ADMIN_LOADING_TEXT %> class="m-t-5 btn bg-pink btn-sm waves-effect btn-submit"><i class="material-icons font-14">save</i> <%= __('admin.system.submit'); %></button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('css') %>
+<link rel="stylesheet" href="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>bootstrap-select/css/bootstrap-select.css">
+
+<%- contentFor("script") %>
+<script type="text/javascript" src="<%= WEBSITE_ADMIN_JS_PLUGIN_PATH %>bootstrap-select/js/bootstrap-select.js"></script>
+
+<script type="text/javascript">
+
+    $(document).on('click', '.btn-submit', function() {
+        var btnId = $(this).attr("id");
+        //startTextLoading(btnId);
+        submit_multipart_form("add-product-detail",function(status,response){
+            if(status){
+                window.location.href = response.redirect_url;
+            }else{
+                //stopTextLoading(btnId);
+            }
+        });
+    });
+    $('.collapsed').click(function(){
+        var regionId   =   $(this).attr('id');
+        $("#body_content_"+regionId).html("");
+        $.ajax({
+            url: WEBSITE_ADMIN_URL+"products/product_places/"+regionId,
+            type: "POST",
+            data: { region_id: regionId },
+            success: function (response) {
+                /**States list*/
+                var responseData = response.final_html_data ? response.final_html_data : "";
+                if(responseData != ''){
+                    responseData += "<input type='hidden' name='region_id[]' value='"+regionId+"'>";
+                    $("#body_content_"+regionId).html(responseData);
+                }else{
+                    $("#body_content_"+regionId).html('No Record Found');
+                }
+                
+            },
+        });
+    });
+
+  
+
+
+    $(document).on('change', '.checkbox_city', function() {
+        // var checkedLength = $(this + ':checked').length;
+        // if(1 == checkedLength){
+        //     alert('checked');
+        // } else {
+        //     alert('unchecked');
+        // }
+        // checkbox is checked
+        var cityId   =   $(this).val();
+        if(this.checked) {
+            $("#body_content_zip"+cityId).html("");
+            $.ajax({
+                url: WEBSITE_ADMIN_URL+"products/product_zipcodes/"+cityId,
+                type: "POST",
+                data: { city_id: cityId },
+                success: function (response) {
+                    /**States list*/
+                    var responseData = response.final_html_data ? response.final_html_data : "";
+                    
+
+                    if(responseData != ''){
+                        $("#main_zip_"+cityId).removeClass('hide');
+                        $("#body_content_zip_"+cityId).html(responseData);
+                    }else{
+                        $("#body_content_zip_"+cityId).html('No Record Found');
+                    }
+                },
+            });
+        }else{
+            $("#main_zip_"+cityId).addClass('hide');
+        }
+    });
+   
+
+</script>
+<script type="text/javascript" src="<%=WEBSITE_ADMIN_JS_PATH%>datatable_state_storage.js"></script>
+

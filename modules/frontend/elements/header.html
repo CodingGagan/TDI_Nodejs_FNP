@@ -1,0 +1,66 @@
+<%- include ../elements/head.html %>
+<% (active_url) ? active_url : ''%>
+<div class="site_content">
+    <header class="header">
+        <div class="container-fluid">
+            <div class="card-deck">
+                <nav class="nav_shell navbar-expand-lg">
+                    <a href="<%= WEBSITE_URL%>" class="navbar-brand"><img src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/images/black-icon.svg"alt="site-icon"></a>
+                    <ul class="navigation-list">
+                        <li class="nav-item <%= active_url == '' ? 'active' : '' %>">
+                            <a class="nav-link " href="/">HOME</a>
+                        </li>
+                        <li class="nav-item <%= (active_url == 'products' && !active_url_path) ? 'active' : '' %>">
+                            <a class="nav-link" href="<%= WEBSITE_URL%>products">PRODUCTS</a>
+                        </li>
+                       
+                        <li class="nav-item dropdown <%=  active_url == 'types-sake' || active_url == 'how-sake-made' || active_url == 'how-to-enjoy-sake' || active_url == 'faq' ? 'active' : '' %>">
+                            <a class="btn nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                LEARN
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item <%= active_url == 'types-sake' ? 'active' : '' %>" href="<%= WEBSITE_URL%>types-sake">TYPES OF SAKE</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'how-sake-made' ? 'active' : '' %>" href="<%= WEBSITE_URL%>how-sake-made">HOW SAKE IS MADE</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'how-to-enjoy-sake' ? 'active' : '' %>" href="<%= WEBSITE_URL%>how-to-enjoy-sake">HOW TO ENJOY SAKE</a></li>
+                                <li><a class="dropdown-item" href="faq">FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown <%=  active_url == 'history' || active_url == 'president-message' || active_url == 'mission-statement' ? 'active' : '' %>">
+                            <a class="btn nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                OUR STORY
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item <%= active_url == 'history' ? 'active' : '' %>" href="<%= WEBSITE_URL%>history">HISTORY</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'president-message' ? 'active' : '' %>" href="<%= WEBSITE_URL%>president-message">PRESIDENT MESSAGE</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'mission-statement' ? 'active' : '' %>" href="<%= WEBSITE_URL%>mission-statement">MISSION STATEMENT</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown <%=  active_url == 'contact-us' || active_url == 'tasting-room' || active_url == 'distributors' || active_url == 'careers' ? 'active' : '' %>">
+                            <a class="btn nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                CONTACT
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item <%= active_url == 'contact-us' ? 'active' : '' %>" href="<%= WEBSITE_URL%>contact-us">CONTACT US</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'tasting-room' ? 'active' : '' %>" href="<%= WEBSITE_URL%>tasting-room">TASTING ROOM</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'distributors' ? 'active' : '' %>" href="<%= WEBSITE_URL%>distributors">DISTRIBUTORS</a></li>
+                                <li><a class="dropdown-item <%= active_url == 'careers' ? 'active' : '' %>" href="<%= WEBSITE_URL%>careers">CAREERS</a></li>   
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" btn" href="<%= WEBSITE_URL%>products/vinoshipper">SHOP</a>
+                        </li>
+                    </ul>
+
+                    <button class="menu_toggle">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </button>
+                    <div class="menu_overlay"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Front User Modals -->

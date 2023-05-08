@@ -1,0 +1,386 @@
+
+
+<div class="container-fluid" id="main-container">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        <%= __('admin.product.add_product'); %>
+                    </h2>
+                    <ul class="header-dropdown m-r--5 btn-right-top-margin">
+                        <li>
+                            <a href="<%=admin_list_url%>" >
+                                <button type="button" class="btn bg-indigo waves-effect">
+                                    <i class="material-icons font-14">keyboard_backspace</i> <%= __("admin.system.back"); %>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form id="add-product" data-submit-btn-id="product-add-btn-id" method="post" class="on_click_submit" role="form">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="product_name" class="control-label"><%= __('admin.product.product_name'); %> <span class="required"> *</span> </label>
+                                        <input name="product_name" id="product_name" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="product_name_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="seo_url" class="control-label"><%= __('Seo URL'); %> <span class="required"> *</span> </label>
+                                        <input name="seo_url" id="seo_url" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="seo_url_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="summary" class="control-label"><%= __('Summary'); %> <span class="required"> *</span> </label>
+                                        <textarea name="summary" id="summary"  class="form-control"></textarea>
+                                    </div>
+                                    <span id="summary_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="delivery_information" class="control-label"><%= __('Delivery Information'); %> <span class="required"> *</span> </label>
+                                        <textarea name="delivery_information" id="delivery_information"  class="form-control"></textarea>
+                                    </div>
+                                    <span id="delivery_information_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="care_instruction" class="control-label"><%= __('Care Instruction'); %> <span class="required"> *</span> </label>
+                                        <textarea name="care_instruction" id="care_instruction"  class="form-control"></textarea>
+                                    </div>
+                                    <span id="care_instruction_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+								<div class="form-group">
+									<div>
+										<label for="tag_keyword" class="control-label">
+											Tags Keywords<span class="required"> * </span>
+										</label>
+										
+											<%
+												[1,2,3,4].map(value =>{  
+											%>
+												<input name="tag_keyword_<%= value %>" id="tag_keyword_<%= value %>" type="text" style="width: 20%;"/>
+											<%      
+												});
+											%>
+									</div>
+									<span id="tag_keyword_error" class="error"></span>
+								</div>
+							</div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="sku" class="control-label"><%= __('Sku'); %> <span class="required"> *</span> </label>
+                                        <input name="sku" id="sku" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="sku_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="item_stock" class="control-label"><%= __('Items In Stock'); %> <span class="required"> *</span> </label>
+                                        <input name="item_stock" id="item_stock" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="item_stock_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="main_price" class="control-label"><%= __('Main price'); %> <span class="required"> *</span> </label>
+                                        <input name="main_price" id="main_price" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="main_price_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="discount_price" class="control-label"><%= __('Discount price'); %> <span class="required"> *</span> </label>
+                                        <input name="discount_price" id="discount_price" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="discount_price_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="quantity" class="control-label"><%= __('Quantity'); %> <span class="required"> *</span> </label>
+                                        <input name="quantity" id="quantity" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="quantity_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="minimum_quantity" class="control-label"><%= __('Minimum Quantity'); %> <span class="required"> *</span> </label>
+                                        <input name="minimum_quantity" id="minimum_quantity" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="minimum_quantity_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="sort_order" class="control-label"><%= __('Sort Order'); %> <span class="required"> *</span> </label>
+                                        <input name="sort_order" id="sort_order" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="sort_order_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="stock_status" class="control-label"><%= __('Stock Status'); %><span class="required"> * </span> </label>
+                                        <select name="stock_status" id="stock_status" class="form-control show-tick">
+                                            <option value=""><%=__("Select Status");%></option>
+                                            <option value="in_stock">In Stock</option> 
+                                            <option value="out_of_stock">Out of Stock</option> 
+                                        </select>
+                                    </div>
+                                    <span id="stock_status_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="">
+                                        <label for="feature_image" class="control-label"><%= __('Feature Image'); %> <span class="required"> *</span> </label>
+                                        <input name="feature_image" id="feature_image" type="file" class="form-control"/>
+                                    </div>
+                                    <span id="feature_image_error" class="error"></span>
+                                </div>
+                            </div>
+                            <% [1,2,3,4,5].map(value => {  %>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="">
+                                        <label for="recommended_image_<%=value%>" class="control-label"><%= __('Recommended Image'); %> - <%=value%> <span class="required"> *</span> </label>
+                                        <input name="recommended_image_<%=value%>" id="recommended_image_<%=value%>" type="file" class="form-control"/>
+                                    </div>
+                                    <span id="recommended_image_<%=value%>_error" class="error"></span>
+                                </div>
+                            </div>
+                            <% });%>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="product_type" class="control-label"><%= __('admin.product.select_category'); %><span class="required"> * </span> </label>
+                                        <select name="category" id="category" class="form-control show-tick">
+                                            <option value=""><%=__("admin.product.select_category");%></option>
+                                            <%
+                                            if(categories.length > 0){
+                                                categories.map(records=>{
+                                                    %>
+                                                    <option value="<%=records.id%>"><%=records.name%></option>    
+                                                <%      
+                                                });
+                                            } %>
+                                        </select>
+                                    </div>
+                                    <span id="category_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="shedules_category" class="control-label">
+                                            Sub Category<span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control" name="sub_category" id="sub_category" class="sub_category">
+                                            <option value="">Select sub category</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <span id="sub_category_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="filter_type" class="control-label">
+                                            Filter Type<span class="required"> * </span>
+                                        </label>
+                                        <select class="form-control" name="filter_type" id="filter_type" class="filter_type">
+                                            <option value="">Select Filter Type</option>
+                                        </select>
+                                    </div>
+                                    <span id="filter_type_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="size" class="control-label"><%= __('admin.product.size'); %><span class="required"> * </span> </label>
+                                        <select name="size" id="size" class="form-control show-tick">
+                                            <option value=""><%=__("admin.product.select_size");%></option>
+                                            <%
+                                            if(sizes.length > 0){
+                                                sizes.map(records=>{
+                                                    %>
+                                                    <option value="<%=records.id%>"><%=records.name%></option>    
+                                                <%      
+                                                });
+                                            } %>
+                                        </select>
+                                    </div>
+                                    <span id="size_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="description" class="control-label"><%= __('Weight Type'); %><span class="required"> * </span> </label>
+                                        <select class="form-control show-tick" id="weight_type" name="weight_type">
+
+                                            <option value="">Select Weight Type</option>
+                                            <%
+                                            if(GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN && Object.keys(GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN).length > 0){
+                                                Object.keys(GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN).map(searchStatus=>{
+                                                    %>
+                                                    <option value='<%=(GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN[searchStatus]["type"]) ? GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN[searchStatus]["type"] :"";%>'>
+                                                        <%=(GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN[searchStatus]['name']) ? GLOBAL_WEIGHT_TYPE_LEVEL_DROPDOWN[searchStatus]["name"] :"";%>
+                                                    </option>
+
+                                            <% 	});
+                                            } %>
+                                        </select>
+                                    </div>
+                                    <span id="weight_type_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="weight_value" class="control-label"><%= __('Weight Value'); %> <span class="required"> *</span> </label>
+                                        <input name="weight_value" id="weight_value" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="weight_value_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="description" class="control-label"><%= __('Dimention Type'); %><span class="required"> * </span> </label>
+                                        <select class="form-control show-tick" id="dimention_type" name="dimention_type">
+
+                                            <option value="">Select Dimention Type</option>
+                                            <%
+                                            if(GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN && Object.keys(GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN).length > 0){
+                                                Object.keys(GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN).map(searchStatus=>{
+                                                    %>
+                                                    <option value='<%=(GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN[searchStatus]["type"]) ? GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN[searchStatus]["type"] :"";%>'>
+                                                        <%=(GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN[searchStatus]['name']) ? GLOBAL_DIMENTION_TYPE_LEVEL_DROPDOWN[searchStatus]["name"] :"";%>
+                                                    </option>
+
+                                            <% 	});
+                                            } %>
+                                        </select>
+                                    </div>
+                                    <span id="dimention_type_error" class="error"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label for="dimention_value" class="control-label"><%= __('Dimention Value'); %> <span class="required"> *</span> </label>
+                                        <input name="dimention_value" id="dimention_value" type="text" class="form-control"/>
+                                    </div>
+                                    <span id="dimention_value_error" class="error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-------- End Product serving temperature  -------->
+                        <button type="button"  id="product-add-btn-id"  <%- ADMIN_LOADING_TEXT %> class="btn bg-pink btn-sm waves-effect btn-submit"><i class="material-icons font-14">save</i> <%= __('admin.system.submit'); %></button>
+                        <a href="javascript:location.reload(true);" class="text-decoration-none"><button type="button" class="btn bg-blue-grey btn-sm waves-effect"><i class="material-icons font-14">refresh</i> <%= __("admin.system.reset"); %></button></a>
+                        <a href="<%= admin_list_url %>"><button type="button" class="btn bg-brown btn-sm waves-effect"><i class="material-icons font-14">cancel</i><%= __("admin.system.cancel"); %></button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor("css") %>
+    <!-- <link rel="stylesheet" href="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>bootstrap-select/css/bootstrap-select.css"  /> -->
+    <link rel="stylesheet" href="<%= WEBSITE_ADMIN_JS_PLUGIN_PATH%>select2/css/select2.min.css">
+
+<%- contentFor("script") %>
+    <!-- <script type="text/javascript" src="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>bootstrap-select/js/bootstrap-select.js"></script> -->
+    <script src="<%= WEBSITE_ADMIN_JS_PLUGIN_PATH%>select2/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            /**
+             * Function to submit form
+             */
+            $(".btn-submit").click(function(){
+                var btnId = $(this).attr("id");
+                startTextLoading(btnId);
+                submit_multipart_form("add-product",function(status,response){
+                    if(status){
+                        window.location.href = response.redirect_url;
+                    }else{
+                        stopTextLoading(btnId);
+                    }
+                });
+            });
+
+
+        
+            $("#category").on("change", function (e) {
+                var categoryId = $("#category").find(":selected").val();
+                // var stateId = e.target.value;
+                //getMastersSubCategoryList(categoryId);
+                $.ajax({
+                    url: WEBSITE_ADMIN_URL+"region/category/get_subcategory",
+                    type: "POST",
+                    data: { category_id: categoryId },
+                    success: function (response) {
+                        /**States list*/
+                        var responseData = response.final_html_data[0] ? response.final_html_data[0] : "";
+                        $("#sub_category").html("");
+                        $("#filter_type").html("");
+                        $("#sub_category").html(responseData);
+                    },
+                });
+            });
+            // $("#sub_category").select2( {
+            //     placeholder: "Select SubCategory",
+            //     allowClear: true
+            // });
+
+            $("#sub_category").on("change", function (e) {
+                var subCategoryId = $("#sub_category").find(":selected").val();
+                $.ajax({
+                    url: WEBSITE_ADMIN_URL+"region/get_filter_type",
+                    type: "POST",
+                    data: { sub_category_id: subCategoryId },
+                    success: function (response) {
+                        /**States list*/
+                        var responseData = response.final_html_data[0] ? response.final_html_data[0] : "";
+                        $("#filter_type").html("");
+                        $("#filter_type").html(responseData);
+                    },
+                });
+            });
+        });
+    </script>

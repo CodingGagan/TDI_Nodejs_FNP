@@ -1,0 +1,53 @@
+
+
+<div class="gradient-wrapper">
+
+    <!-- Heading Section Starts -->
+    <%- contact_us %>
+
+
+    <!-- Heading Section Ends -->
+
+    <!-- Contact Us Form Section Starts -->
+
+    <section class="contact-us-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="contact-us-form-box">
+                        <h4 class="contact-us-title">Send us a message...</h4>
+                        <form class="mt-4 on_click_submit" id="contact_form" data-submit-btn-id="contact-add-btn-id" method="post" role="form">
+                            <div class="form-group mb-3">
+                                <label class="form-label">your email <sup class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                <span id="email_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">your full name <sup class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" name="full_name" id="full_name" placeholder="Full Name">
+                                <span id="full_name_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">questions or comments <sup class="mandat-star">*</sup></label>
+                                <textarea class="form-control" name="comments" id="comments" placeholder="Questions or Comments"></textarea>
+                                <span id="comments_error" class="mandat-star"></span>
+                            </div>
+                            <div class="btn-shell form-btn-shell">
+                                <button class="btn btn-submit" id="contact-add-btn-id" type="button">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Form Section Ends -->
+
+    <!-- Subscription Section Starts -->
+
+    <%- include("../../elements/newsletter.html");%>
+
+    <!-- Subscription Section Ends -->
+
+</div>

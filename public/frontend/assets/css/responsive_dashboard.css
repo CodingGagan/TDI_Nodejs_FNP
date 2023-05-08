@@ -1,0 +1,93 @@
+/* ##Device = Desktops ##Screen = 1281px to higher resolution desktops */
+
+@media (min-width: 1281px) {
+}
+
+/*  ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 911px) {
+  .sToggleTop.btn {
+    display: block;
+  }
+  #sidebarToggle {
+    display: none;
+  }
+  .inner-topbar {
+    width: 100%;
+  }
+  .dashboard_shell {
+    margin-left: 0 !important;
+  }
+  .sidebar-toggled .sidebar {
+    left: 0;
+  }
+  .sidebar {
+    left: -100%;
+  }
+  .profile_opts .img-profile {
+    padding: 0 !important;
+  }
+  .inner-topbar .navbar-search .form-control {
+    min-width: 290px;
+  }
+  .inner-topbar .form-group {
+    margin-bottom: 0;
+  }
+  .sidebar-toggled .inner-topbar {
+    width: calc(100% - var(--toggled-sidebar-lg));
+}
+}
+
+/* ##Device = Tablets, Ipads (landscape) ##Screen = B/w 768px to 1024px */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* ##Device = Low Resolution Tablets, Mobiles (Landscape) ##Screen = B/w 481px to 767px */
+
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 565px */
+
+@media only screen and (max-width: 565px) {
+  .dashboard_content {
+    padding: 30px 0;
+  }
+  .sidebar ul.navbar-nav {
+    height: calc(100% - 91px);
+  }
+  .navbar-search {
+    display: none;
+  }
+  .th_user_opts .sm-navbar-search {
+    display: inherit;
+  }
+  .sm-navbar-search .navbar-search {
+    display: block;
+  }
+  .sm-navbar-search .dropdown-menu {
+    left: -130px;
+    right: initial;
+    padding: 0 10px;
+  }
+  .inner-topbar .navbar-search .form-control {
+    min-width: 200px;
+    font-size: 13px;
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+}

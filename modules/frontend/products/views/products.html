@@ -1,0 +1,175 @@
+<% 
+    var productSecificaton = (products_details) ? products_details : [];
+%>
+
+<!-- Banner Section Starts -->
+
+<section class="top-banner-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="top-banner-content">
+                    <figure class="banner-bg-img">
+                        <img src="<%= banner_detail.full_image_path %>">
+                    </figure>
+                    <figcaption class="banner-content-box">
+                        <div class="banner-text">
+                            <h6><%= banner_detail.title %></h6>
+                            <h4><%= banner_detail.subtitle %></h4>
+                        </div>
+                    </figcaption>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Banner Section Ends -->
+
+<!-- Product Categories Section Starts -->
+
+<section class="product-category">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <form class="product-search" id="product-search" role="form">
+                    <div class="product-filter-inner">
+                        <div class="size-box">
+                            <a class="size-btn">Size</a>
+                            <ul class="size-options" style="display: none;">
+                                <% productSecificaton.sizes && productSecificaton.sizes.length > 0 ? productSecificaton.sizes.map((size) => { %>
+                                <li class="checkboxshell form-group">
+                                    <input hidden id="<%= (size.id) ? size.id : '' %>" class="cbxcls" name="size" onclick="searchProduct(this, value);" value="<%= (size.id) ? size.id : '' %>" type="checkbox" />
+                                    <label class="cbx" for="<%= (size.id) ? size.id : '' %>"></label>
+                                    <label class="lbl" for="<%= (size.id) ? size.id : '' %>"><%= (size.name) ? size.name : 'N/A' %></label>
+                                </li>
+                                <% }) : "" %>
+                            </ul>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-group search-bar sepe-search-bar">
+                                <input type="text" class="form-control" name="product_name" id="product_name" placeholder="Search by product name" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-submit" type="button" onclick="searchProduct(this, 'product_name');">
+                                        <img src="<%= WEBSITE_FILES_URL%>assets/images/white-search-icon.svg">
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>   
+                </form>
+            </div>
+            <div class="col-xl-12">
+                <ul class="product-button-shell">
+                    <% productSecificaton.categories && productSecificaton.categories.length > 0 ? productSecificaton.categories.map((category) => { %>
+                        <li><a href="<%= (category.slug) ? '#'+category.slug : '' %>"><%= (category.name) ? category.name : "" %></a></li>
+                    <% }) : "" %>
+                </ul>
+                <div class="search-taste-filter">
+                    <button class="btn prod-filter-btn">Search by taste</button>
+                </div>
+                <div class="prod-filtered-box" style="display: none;">
+                    <div class="row">
+                        <div class="col-xl-6 flex-col">
+                            <div class="filter-option-box">
+                                <h4 class="filter-title">sweetness</h4>
+                                <ul class="filter-options">
+                                    <% productSecificaton.sweetness && productSecificaton.sweetness.length > 0 ? productSecificaton.sweetness.map((sweetness) => { %>
+                                    <li class="checkboxshell form-group">
+                                        <input hidden id="<%= (sweetness.id) ? sweetness.id : '' %>" name="sweetness" onclick="searchProduct(this, value);" value="<%= (sweetness.id) ? sweetness.id : '' %>" class="cbxcls" type="checkbox" />
+                                        <label class="cbx" for="<%= (sweetness.id) ? sweetness.id : '' %>"></label>
+                                        <label class="lbl" for="<%= (sweetness.id) ? sweetness.id : '' %>"><%= (sweetness.name) ? sweetness.name : 'N/A' %></label>
+                                    </li>
+                                    <% }) : "" %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 flex-col">
+                            <div class="filter-option-box">
+                                <h4 class="filter-title">bodies</h4>
+                                <ul class="filter-options">
+                                    <% productSecificaton.bodies && productSecificaton.bodies.length > 0 ? productSecificaton.bodies.map((body) => { %>
+                                    <li class="checkboxshell form-group">
+                                        <input hidden id="<%= (body.id) ? body.id : '' %>" name="body" onclick="searchProduct(this, value);" value="<%= (body.id) ? body.id : '' %>" class="cbxcls" type="checkbox" />
+                                        <label class="cbx" for="<%= (body.id) ? body.id : '' %>"></label>
+                                        <label class="lbl" for="<%= (body.id) ? body.id : '' %>"><%= (body.name) ? body.name : 'N/A' %></label>
+                                    </li>
+                                    <% }) : "" %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="filter-option-box">
+                                <h4 class="filter-title">Characteristics</h4>
+                                <ul class="filter-options">
+                                    <% productSecificaton.characteristics && productSecificaton.characteristics.length > 0 ? productSecificaton.characteristics.map((character) => { %>
+                                    <li class="checkboxshell form-group">
+                                        <input hidden id="<%= (character.id) ? character.id : '' %>" name="characteristics" onclick="searchProduct(this, value);" value="<%= (character.id) ? character.id : '' %>" class="cbxcls" type="checkbox" />
+                                        <label class="cbx" for="<%= (character.id) ? character.id : '' %>"></label>
+                                        <label class="lbl" for="<%= (character.id) ? character.id : '' %>"><%= (character.name) ? character.name : 'N/A' %></label>
+                                    </li>
+                                    <% }) : "" %>
+                                </ul>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+                <div class="col-xl-12" id="main_product"></div>
+                <div class="col-xl-12">
+                    <div class="grid-box filtered-prod-box" id="productList"></div>
+                </div>
+                <% category_products && category_products.length > 0 ? category_products.map((categoryProducts) => { %>
+                 
+                    <div id="<%= (categoryProducts.slug) ? categoryProducts.slug : '' %>" class="product-info-shell">
+                        <div class="row">
+                            <div class="col-xl-6 flex-center-slider">
+                                <div class="prod-slider-content">
+                                    <h4 class="sake-title"><%= (categoryProducts.name) ? categoryProducts.name : 'N/A' %></h4>
+                                    <p class="text-para"><%- (categoryProducts.description) ? categoryProducts.description : 'N/A'%></p>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="owl-carousel owl-theme productSliderCarousel">
+                                    <% if(categoryProducts && categoryProducts.product_list && categoryProducts.product_list.length > NOT){ 
+                                        categoryProducts.product_list.map((products) => {
+                                        %>
+                                            <a href="<%= WEBSITE_URL%>products/<%=products.slug%>">
+                                                <div class="item">
+                                                    <figure class="slider-img">
+                                                        <img src="<%= PRODUCTS_URL+products.default_image%>" alt="prod-img">
+                                                    </figure>
+                                                </div>
+                                            </a>
+                                        <% }) %>   
+                                    <% }else{ %>
+                                        <div class="item">
+                                            <figure class="slider-img">
+                                                <img src="<%= NO_IMAGE_AVAILABLE%>" alt="prod-img">
+                                            </figure>
+                                        </div>
+                                    <% } %> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) : "" %>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Categories Section Ends -->
+
+<!-- Subscription Section Starts -->
+
+<%- include("../../elements/newsletter.html");%>
+<script>
+    WEBSITE_PUBLIC_UPLOADS_PATH = "<%= WEBSITE_PUBLIC_UPLOADS_PATH%>";
+    WEBSITE_URL 	= "<%= WEBSITE_URL%>";
+</script>
+<!-- Subscription Section Ends -->
+

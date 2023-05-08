@@ -1,0 +1,185 @@
+<style type="text/css">
+  
+.container {
+    max-width: 1190px;
+    margin: 50px auto;
+    width: 100%;
+}
+body {
+    background-color: #607D8B!important;
+
+}
+.form_cls .form-input-group{
+    display: flex;
+}
+
+
+.form_cls textarea:focus {
+    outline: none;
+    border-color: #dcdcdc;
+}
+.btn_shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 15px;
+}
+
+
+table.table {
+    border-collapse: collapse;
+    max-width: 100%;
+    width: 100%;
+}
+
+tr {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+
+tbody tr:hover {
+    background: #e6e6e6;
+}
+.input-file {
+    margin: 15px 0;
+}
+.input-file input[type=file]
+{
+  margin-left: 15px
+}
+
+
+
+
+
+
+
+.btn_shell .btn {
+    width: 100%;
+    border: 1px solid #7b8fff;
+    border-radius: 4px;
+    background: #7b8fff87;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 8px 10px;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.btn_shell .btn:hover {
+    border-color: #ccc;
+    box-shadow: 0 0 2px 1px #7b8fff45;
+    background: #7b8fff;
+}
+
+.form_cls textarea {
+    border-radius: 6px;
+    border: 1px solid rgb(255 255 255 / 0%);
+    margin: 0px;
+    width: 100%;
+    resize: unset;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+thead th {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    background-color: #FFF;
+    border-color: #e9edf2;
+    vertical-align: bottom;
+}
+tr:nth-child(even) {
+    background-color: #fff;
+}
+tr:nth-child(odd) {
+    background-color: #eee;
+}
+th, td {
+    text-align: left;
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+
+</style>
+
+<div class="container">
+
+<form class="form_cls" id="apiForm" name="post_mobile_api" method="post" action="<%= WEBSITE_URL %>admin/get_mobile_api/<%= WEBSITE_HEADER_AUTH_KEY %>" enctype="multipart/form-data">
+  <div class="form-input-group">
+    <textarea id="data" name="data" rows="10" cols="100" ></textarea>
+    <div class="btn_shell">
+      <input class="btn" type="submit" id="submitBtn" value="submit">
+      <input class="btn" type="button" id="addInputs" value="Add Image Files">
+      <input class="btn" type="button" id="convertToJSON" value="Convert To JSON">
+    </div>
+  </div>
+  <!-- <select id="input-type" >
+    <option value="json" selected>JSON</option>
+    <option value="base64">Base64</option>
+  </select> -->
+  <div id="files"></div>
+</form>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<script src="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>jquery/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var inputHtml = '<div class="input-file">'+
+      '<input type="text" class="input_name"/>'+
+      '<input type="file" class="image-input" name=""/>'+
+    '</div>';
+
+    $("#addInputs").click(function(){
+      $("#files").append(inputHtml);
+    });
+
+    $(document).on("keyup",".input_name",function(){
+      var name = $(this).val();
+      $(this).parent().find(".image-input").attr("name",name);
+    });
+
+
+    $("#convertToJSON").click(function(){
+      var formData  = $("#data").val();
+      try {
+        $("#data").val(atob(formData));
+      } catch(e) {
+        alert("Invalid Data");
+      }
+    });
+  });
+</script>

@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Nunito-ExtraLight";
+  src: url("../webfonts/nunito-font/Nunito-ExtraLight.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-ExtraLight.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-ExtraLight.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-ExtraLight.svg#Nunito-ExtraLight") format("svg");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-Light";
+  src: url("../webfonts/nunito-font/Nunito-Light.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-Light.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-Light.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-Light.svg#Nunito-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-Regular";
+  src: url("../webfonts/nunito-font/Nunito-Regular.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-Regular.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-Regular.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-Regular.svg#Nunito-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-SemiBold";
+  src: url("../webfonts/nunito-font/Nunito-SemiBold.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-SemiBold.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-SemiBold.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-SemiBold.svg#Nunito-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url("../webfonts/nunito-font/Nunito-Bold.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-Bold.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-Bold.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-Bold.svg#Nunito-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-ExtraBold";
+  src: url("../webfonts/nunito-font/Nunito-ExtraBold.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-ExtraBold.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-ExtraBold.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-ExtraBold.svg#Nunito-ExtraBold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-Black";
+  src: url("../webfonts/nunito-font/Nunito-Black.eot") format("embedded-opentype"),
+    url("../webfonts/nunito-font/Nunito-Black.woff") format("woff"),
+    url("../webfonts/nunito-font/Nunito-Black.ttf") format("truetype"),
+    url("../webfonts/nunito-font/Nunito-Black.svg#Nunito-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FredokaOne-Regular";
+  src: url("FredokaOne-Regular.eot") format("embedded-opentype"),
+    url("FredokaOne-Regular.woff") format("woff"),
+    url("FredokaOne-Regular.ttf") format("truetype"),
+    url("FredokaOne-Regular.svg#FredokaOne-Regular") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}

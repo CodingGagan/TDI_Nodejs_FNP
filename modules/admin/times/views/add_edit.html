@@ -1,0 +1,163 @@
+<div class="container-fluid" id="main-container">
+	<div class="row clearfix" >
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="card">
+				<div class="header">
+					<h2>
+						<%= (is_editable) ? __("Time Management Edit") : __("Time Management Add"); %>
+					</h2>
+					<ul class="header-dropdown m-r--5 btn-right-top-margin">
+						<li>
+							<a href="<%=admin_list_url%>" >
+								<button type="button" class="btn bg-indigo waves-effect">
+									<i class="material-icons font-14">keyboard_backspace</i> <%= __("admin.system.back"); %>
+								</button>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="body">
+					<form id="add-pricing-packages" data-submit-btn-id="pricing-packages-add-btn-id" method="post" class="on_click_submit" role="form">
+						
+						<div class="row clearfix">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<div class="form-line">
+										<label for="name" class="control-label">
+											<%= __("Name"); %><span class="required"> * </span>
+										</label>
+										<input type="text" id="name" class="form-control" name="name" value="<%=(result.name) ? result.name :''%>"/>
+									</div>
+									<span id="name_error" class="error"></span>
+								</div>
+							</div>
+						
+
+							<div class="col-sm-6">
+								<div class="form-group">
+									<div class="form-line">
+										<label for="shedules_category" class="control-label">
+											Shedule Type<span class="required"> * </span>
+										</label>
+										<select class="form-control show-tick search_by_status" id="shedules_category" name="shedules_category">
+											<option value="">Select shedule type</option>
+											<%
+											selectSheduleCategory 		= 	(result.shedules_category)  ? String(result.shedules_category) :"";
+											if(shedulesCategory && shedulesCategory.length > 0){
+												shedulesCategory.map(shedules_category =>{  
+												var selectedFlag    = (typeof shedules_category.id !== typeof undefined && shedules_category.id  && shedules_category.id == selectSheduleCategory) ? "selected" : "";
+												%>
+												<option value="<%=shedules_category.id%>" <%=selectedFlag%> ><%=shedules_category.name%></option>
+											<%      
+												});
+											} %>
+										</select>
+									</div>
+									<span id="shedules_category_error" class="error"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="row clearfix">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<div class="form-line input-group date" id='datetimepicker6'>
+										<label for="name" class="control-label">
+											<%= __("Start Time"); %><span class="required"> * </span>
+										</label>
+										<input type='text' class="form-control datepicker6" name="start_time" value="<%=(result.start_time) ? result.start_time :''%>"/>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+									<span id="name_error" class="error"></span>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<div class="form-line input-group date" id='datetimepicker7'>
+										<label for="name" class="control-label">
+											<%= __("End Time"); %><span class="required"> * </span>
+										</label>
+										<input type='text' class="form-control datepicker7" name="end_time" value="<%=(result.end_time) ? result.end_time :''%>"/>
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+									<span id="name_error" class="error"></span>
+								</div>
+							</div>
+						</div>
+
+						
+
+						<button type="button" id="pricing-packages-add-btn-id" class="btn bg-pink btn-sm waves-effect btn-submit" <%- ADMIN_LOADING_TEXT %> ><i class="material-icons font-14">save</i> <%= __("admin.system.submit"); %></button>
+						<a href="javascript:location.reload(true);" class="text-decoration-none"><button type="button" class="btn bg-blue-grey btn-sm waves-effect"><i class="material-icons font-14">refresh</i> <%= __("admin.system.reset"); %></button></a>
+						<a href="<%= admin_list_url %>"><button type="button" class="btn bg-brown btn-sm waves-effect"><i class="material-icons font-14">cancel</i><%= __("admin.system.cancel"); %></button></a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- contentFor('css') %>
+<link rel="stylesheet" href="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>bootstrap-select/css/bootstrap-select.css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css">
+
+<style>
+.input-group-addon {
+    padding: 0px 0px;
+    font-size: 27px;
+	background-color: #eee!important;
+	padding: 6px 12px!important;
+}
+</style>
+
+<%- contentFor("script") %>
+<script type="text/javascript" src="<%= WEBSITE_ADMIN_JS_PLUGIN_PATH %>bootstrap-select/js/bootstrap-select.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+	/**
+	 * Function to submit form
+	 */
+	$('.btn-submit').click(function(){
+		var btnId = $(this).attr('id');
+		startTextLoading(btnId);
+		ajax_submit('add-pricing-packages',function(status,response){
+			console.log(status);
+			if(status){
+				window.location.href = response.redirect_url;
+			}else{
+				stopTextLoading(btnId);
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(function () {
+
+		// $('#datetimepicker6').datetimepicker({
+		// 	format: 'DD-MM-YYYY LT',
+		// 	useCurrent: true
+		// }).on("dp.change", function (e) {
+		// 	$('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+		// });
+
+
+		$('#datetimepicker6').datetimepicker();
+		$('#datetimepicker7').datetimepicker({
+	useCurrent: false //Important! See issue #1075
+	});
+		$("#datetimepicker6").on("dp.change", function (e) {
+			$('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+			$('.datepicker6').val($('#datetimepicker6').data('date'));
+		});
+		$("#datetimepicker7").on("dp.change", function (e) {
+			$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+			$('.datepicker7').val($('#datetimepicker7').data('date'));
+		});
+	});
+ </script>
+   

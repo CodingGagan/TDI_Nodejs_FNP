@@ -1,0 +1,137 @@
+<% var sliders = (slider) ? slider : [] %>
+
+<!-- Banner Slider Section Starts -->
+<section class="slider-shell">
+    <div class="owl-carousel owl-theme bannerSliderCarousel">
+        <% sliders.map((records) => { %>
+            <div class="slider-image" style="background-image: url('<%= records.full_image_path %>')">
+                <div class="container">
+                    <div class="row item">
+                        <div class="col-xl-6 col-sm-7 flex-center-slider">
+                            <div class="slider-text">
+                                <h2 class="slider-title"><%= (records.slider_title) ? records.slider_title : "" %></h2>
+                                <p class="slider-para"><%- (records.body) ? nl2br(records.body) : "" %></p>
+                                <div class="slider-btn btn-shell">
+                                    <button class="btn"><%= (records.action_name) ? records.action_name : "" %><i class="far fa-arrow-alt-circle-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-sm-5"></div>
+                    </div>
+                </div>
+            </div>
+        <% })%>
+    </div>
+</section>
+
+<!-- Banner Slider Section Ends -->
+
+<!-- Popular Sakes Section Starts -->
+
+<%- popular_sakes %>
+
+<!-- Popular Sakes Section Ends -->
+
+<!-- Popular Product Section Starts -->
+
+<section class="popular-product-section section-padding">
+    <div class="container-fluid">
+        <div class="section-heading text-center">
+            <h3 class="sec-head-title">Popular <span class="text-red">Sakes</span></h3>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="grid-box">
+                    <%
+                        if(products && products.length > 0){
+                            products.map((records, index)=>{ %>
+                                <div class="grid-inner">
+                                    <figure class="prod-img hovereffect">
+                                        <img src="<%= records.full_image_path %>" alt="product-image">
+                                        <div class="overlay prod-overlay-descp">
+                                            <h2 class="p-o-title"><%= (records.product_name) ? records.product_name : 'N/A'%></h2>
+                                            <p class="p-o-para"><%= (records.flavor) ? records.flavor : 'N/A'%></p>
+                                            <div class="download-btn-bg">    
+                                                <a href="<%= records.full_image_path%>" target="_blank" download="" class="btn download-btn">
+                                                    <i class="fas fa-cloud-download-alt"></i>
+                                                    <span>Download</span> 
+                                                </a>
+                                            </div>    
+                                        </div>
+                                    </figure>
+                                    <figcaption class="prod-text-shell">
+                                        <h4 class="prod-title"><%= records.product_name%></h4>
+                                        <div class="btn-shell">
+                                            <a href="<%= WEBSITE_URL%>products/<%= records.slug%>" class="prod-btn btn">learn more</a>
+                                        </div>
+                                    </figcaption>
+                                </div>
+                            <% })
+                        }
+                    %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Product Section Ends -->
+
+<!-- About Ozeki Section Starts -->
+<%- about_us %>
+
+<!-- About Ozeki Section Ends -->
+
+<!-- Subscription Section Starts -->
+
+<%- include("../../elements/newsletter.html");%>
+
+<!-- Subscription Section Ends -->
+
+
+<!-- Modal Age confirmation Start-->
+<div class="legalwarnmodal modal fade" role="dialog"  id="warnPopupModal" tabindex="-1" aria-labelledby="warnPopupModalLabel"
+    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <figure class="modal-icon">
+                    <img src="<%= WEBSITE_PUBLIC_UPLOADS_PATH%>modal-icon.svg">
+                </figure>
+                <figcaption class="modal-content">
+                    <h4>Are you of legal drinking age?</h4>
+                    <div class="btn-shell">
+                        <button onClick="popupAction('yes')" class="btn">Yes</button>
+                        <button onClick="popupAction('no')" class="btn grey-bg">No</button>
+                    </div>
+                    <p>By clicking the "Yes" button, you affrim that you are of legal drinking age in the country where
+                        the site is being accessed.</p>
+                </figcaption>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Age confirmation End-->
+
+
+<!-- Modal Age confirmation Start-->
+<div class="legalwarnmodal modal fade" id="warnPopupModalNo" tabindex="-1" aria-labelledby="warnPopupModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" >
+                <figure class="modal-icon">
+                    <img src="<%= WEBSITE_PUBLIC_UPLOADS_PATH%>modal-icon.svg">
+                </figure>
+                <figcaption class="modal-content">
+                    <h4>We're Sorry!</h4>
+                    <h6>I hit the wrong button!</h6>
+                    <div class="btn-shell">
+                        <button onClick="popupAction('yes')" class="btn grey-bg">I'm old enough!</button>
+                    </div>
+                    <p>You must be of legal drinking age of your country to enter this site.</p>
+                </figcaption>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Age confirmation End-->

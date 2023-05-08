@@ -1,0 +1,271 @@
+<!-- JS Dependencies Only  -->
+
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/popper.min.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/script.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/formvalidator.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/custom.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link   rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/raphael.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/color.jquery.js"></script>
+<script type="text/javascript" src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/js/jquery.usmap.js"></script>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24372428-1']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    /**
+        * Function to submit form
+    */
+    $('.btn-submit').click(function(){
+        var btnId  = $(this).attr('id');
+        var fromId = $(this).closest("form").attr('id');
+        startTextLoading(btnId);
+        $('#'+fromId).bootstrapValidator('validate');
+        let errorLength = $('#'+fromId).bootstrapValidator('validate').has('.has-error').length
+        if(errorLength == 0){
+            ajax_submit(fromId,function(status,response){
+                if(status){
+                    if(response.status == 'success') toastr.success(response.message,"Success");
+                    if(response.status == 'error') toastr.error(response.message,"Error");
+                }else{
+                    stopTextLoading(btnId);
+                }
+            });
+        }
+    });
+    WEBSITE_URL = "<%= WEBSITE_URL%>"
+    /**
+        * Function to submit newsletter form
+    */
+    $('.newsletter').click(function(){
+        var btnId  = $(this).attr('id');
+        var formId = $(this).closest("form").attr('id');
+        
+        startTextLoading(btnId);
+        $('#'+formId).bootstrapValidator('validate');
+        let errorLength = $('#'+formId).bootstrapValidator('validate').has('.has-error').length;
+
+        if(errorLength == 0){
+            var values = {};
+            var fd     = new FormData();
+            $.each($('#'+formId).serializeArray(), function(i, field) {
+                /** Append all input values into FormData object */
+                if(typeof values[field] == 'object'){
+                    fd.append(key, JSON.stringify(value));
+                }else{
+                    fd.append(field.name, field.value);
+                }
+            });
+            $.ajax({
+                url 		: WEBSITE_URL+'newsletter',
+                type		: "POST",
+                data 		: fd,
+                processData	: false,
+                contentType	: false,
+                success:function(response){
+                    if(response.status == 'success'){
+                        toastr.success(response.message,"Success");
+                        stopTextLoading(btnId);
+                    }else{
+                        display_errors(response.message,formId);
+                        stopTextLoading(btnId);
+                    }
+                }
+            })
+        }
+    });
+
+    /**
+        * Function to get filtered products
+    */
+    var formSet  = {};
+    let searchDataBody = [];
+    let searchDataSize = [];
+    let searchDataSweetness = [];
+    let searchDataCharacteristics = [];
+    function searchProduct(e, val) {
+        let name  = $("#"+val).attr("name");
+        if(name != 'product_name'){
+            if(name == 'size'){
+                let changeStatus = $("#"+val).is(':checked');
+                if (changeStatus == true){
+                    searchDataSize.push(val)
+                    formSet['size'] = searchDataSize
+                    getProducts(formSet)
+                }else if(changeStatus == false){
+                    let index = searchDataSize.indexOf(val);
+                    if (index !== -1) {
+                        searchDataSize.splice(index, 1);
+                        formSet['size'] = searchDataSize
+                        getProducts(formSet)
+                    } 
+                }
+            }else if(name == 'body'){
+                let changeStatus = $("#"+val).is(':checked');
+                if (changeStatus == true){
+                    searchDataBody.push(val)
+                    formSet['body'] = searchDataBody
+                    getProducts(formSet)
+                }else if(changeStatus == false){
+                    let index = searchDataBody.indexOf(val);
+                    if (index !== -1) {
+                        searchDataBody.splice(index, 1);
+                        formSet['body'] = searchDataBody
+                        getProducts(formSet)
+                    } 
+                }
+            }else if(name == 'sweetness'){
+                let changeStatus = $("#"+val).is(':checked');
+                if (changeStatus == true){
+                    searchDataSweetness.push(val)
+                    formSet['sweetness'] = searchDataSweetness
+                    return getProducts(formSet)
+                    
+                }else if(changeStatus == false){
+                    let index = searchDataSweetness.indexOf(val);
+                    if (index !== -1) {
+                        searchDataSweetness.splice(index, 1);
+                        formSet['sweetness'] = searchDataSweetness
+                        getProducts(formSet)
+                    } 
+                }
+            }else if(name == 'characteristics'){
+                let changeStatus = $("#"+val).is(':checked');
+                if (changeStatus == true){
+                    searchDataCharacteristics.push(val)
+                    formSet['characteristics'] = searchDataCharacteristics
+                    getProducts(formSet)
+                }else if(changeStatus == false){
+                    let index = searchDataCharacteristics.indexOf(val);
+                    if (index !== -1) {
+                        searchDataCharacteristics.splice(index, 1);
+                        formSet['characteristics'] = searchDataCharacteristics
+                        getProducts(formSet)
+                    } 
+                }
+            }
+                
+        }else{
+            let productValue = $("#product_name").val();
+            formSet['product_name'] = productValue
+            if(productValue) getProducts(formSet)
+        }   
+    }
+
+    /*** function is used to get distirbutors list according to state */
+    $(document).ready(function() {
+        $('#map').usmap({
+            stateStyles: {fill: '#edebeb',stroke: '#fff', 'stroke-width': .25},
+            //showLabels: false,
+            labelWidth: 45,
+            labelHeight: 35,
+            labelBackingStyles: {fill: '#edebeb',stroke: '#fff'},
+            labelTextStyles: {fill: '#b5b3b3', 'font-weight': 800, 'font-size': '20px'},
+            stateClickStyles: {fill: '#e60013', persistent: false},
+            enableToolTips: true,
+            'click' : function(event, data) {
+                var state = data.name;	
+                $.ajax({
+                  type: 'post',
+                  url: WEBSITE_URL+'distributors',
+                  data: {state: state},
+                  success: function (response) {
+                    if(response){
+                        $("#directory").html("");
+                        if(typeof response.result !== typeof undefined && response.result && response.result.length > 0){
+                            let distributorState = (response.result) ? response.result[0]['state_name'] : '';
+                            var distributorList  = (response.result) ? response.result : [];
+                            let distributorHtml  = '<h5 class="dist-title">'+distributorState+'</h5>';
+                            distributorHtml     += '<ul class="dist-list">';
+                            distributorList.map(function(records, index){
+
+                                /** Append html */
+                                distributorHtml += '<li class="dist-info-box">'+
+                                        '<h4 class="dist-name">'+records.name+'</h4>'+
+                                        '<p class="dist-address">'+nl2br(records.address)+'</p>'+
+                                    '</li>';
+                                                
+                            });
+                            distributorHtml     += '</ul>';
+                            $("#directory").append(distributorHtml);
+                        }else{
+                            /** No record found */
+                            let distributorHtml = (Object.keys(data).length > 0) ? '<div class="menu-info text-center"><img src="'+WEBSITE_URL+'public/frontend/uploads/no_distributors.png" alt="No distributor"/></div>' : ''
+                            $("#directory").html(distributorHtml);
+                        }
+                    }
+                  }
+                });
+            }
+        });
+    });
+    
+    /**** Set Cookie for age confirmation */   
+    function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    /**** Get Cookie for age confirmation 
+     * return string
+    */
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    
+
+    /** Open warning popup for age confirmation */
+    $(window).on('load', function() {
+        var ageConfirmed = getCookie("ageConfirmation");
+        if(!ageConfirmed){
+            $('#warnPopupModal').modal('show');
+        }
+    });
+
+    /** If yes, the close warning popup for age confirmation */
+    function popupAction(status) {
+        if(status == 'yes'){
+            let ageConfirm = "Yes";
+            if (ageConfirm != "" && ageConfirm != null) {
+                setCookie("ageConfirmation", ageConfirm, 30);
+            }
+            $('#warnPopupModal').modal('hide');
+            $('#warnPopupModalNo').modal('hide');
+        } 
+        if(status == 'no'){
+            $('#warnPopupModal').modal('hide');
+            $('#warnPopupModalNo').modal('show');
+        }
+    };
+</script>

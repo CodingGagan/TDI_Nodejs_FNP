@@ -1,0 +1,136 @@
+
+<%
+var statusType = (typeof status_type !== typeof undefined && status_type)   ?   status_type :"";
+var userType = (typeof user_type !== typeof undefined && user_type) ?   user_type :"";
+var productId = (typeof product_id !== typeof undefined && product_id) ?   product_id :"";
+%>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <h2>
+                Product Places
+            </h2>
+        </div>
+        <div class="body">
+            <div class="row clearfix">
+                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                    <div class="panel-group full-body" id="accordion_18" role="tablist" aria-multiselectable="true">
+                        
+
+                        <form id="add-product-detail" data-submit-btn-id="product-add-detail-btn-id" method="post" class="on_click_submit" role="form">
+                            
+                        <%
+                        if(typeof result!== typeof undefined && result.length > 0){
+                            result.map((value, key)=>{
+                                %>
+                                
+                                <div class="panel panel-col-orange">
+                                    <div class="panel-heading" role="tab" id="headingFive_<%=key%>_18">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" id="<%=value._id%>" role="button" data-toggle="collapse" data-parent="#accordion_18" href="#collapseFive_<%=key%>_18" aria-expanded="false"
+                                               aria-controls="collapseFive_<%=key%>_18">
+                                                <%=value.city_name%>
+                                                
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFive_<%=key%>_18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive_<%=key%>_18">
+                                        <div class="panel-body" id="body_content_<%=value._id%>">
+                                            
+                                            <div class="row clearfix">
+                                                <% if(value.zip_codes && value.zip_codes.length > 0){
+                                                    value.zip_codes.map((val, index)=>{ %>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="card">
+                                                                <div class="header bg-grey">
+                                                                    <h2>
+                                                                        <%=val.zip_code%> 
+                                                                    </h2>
+                                                                </div>
+                                                                <div class="body">
+                                                                    <% if(timeDetails && timeDetails.length > 0){
+                                                                        timeDetails.map((valData, ind)=>{  
+                                                                            %>
+                                                                            <div class="row clearfix">
+                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                    <label for="multi-first-name">
+                                                                                        <%=valData.name%>
+                                                                                    </label>
+                                                                                    <input type="text" id="multi-first-name" name="charges[<%=value._id%>][<%=val.zip_id%>][<%=valData._id%>]" class="pure-u-23-24" value="<%=valData.charge%>" >
+                                                                                        <% if(valData.times && valData.times.length > 0){
+                                                                                            valData.times.map((valDataTime, indVal)=>{ %>
+                                                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                                <input type="checkbox" value="<%=valData._id%>" name="zipcheck[<%=value._id%>][<%=val.zip_id%>][<%=valData._id%>]">
+                                                                                                <span><%=valDataTime.start_time%> TO <%=valDataTime.end_time%></span>
+                                                                                            </div>
+                                                                                        <%  });
+                                                                                            } %>
+                                                                                </div>
+                                                                            </div>
+                                                                    <%  });
+                                                                    } %>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                <%  });
+                                                } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <%      
+                            });
+                        } %>
+                        <button type="button"  id="product-add-detail-btn-id"  <%- ADMIN_LOADING_TEXT %> class="m-t-5 btn bg-pink btn-sm waves-effect btn-submit"><i class="material-icons font-14">save</i> <%= __('admin.system.submit'); %></button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('css') %>
+<link rel="stylesheet" href="<%=WEBSITE_ADMIN_JS_PLUGIN_PATH%>bootstrap-select/css/bootstrap-select.css">
+
+<%- contentFor("script") %>
+<script type="text/javascript" src="<%= WEBSITE_ADMIN_JS_PLUGIN_PATH %>bootstrap-select/js/bootstrap-select.js"></script>
+
+<script type="text/javascript">
+
+    // $(document).ready(function(){
+    //     /**
+    //      * Function to submit form
+    //      */
+    //      $(".btn-submit").click(function(){
+    //             var btnId = $(this).attr("id");
+    //             startTextLoading(btnId);
+    //             submit_multipart_form("add-product-detail",function(status,response){
+    //                 if(status){
+    //                     window.location.href = response.redirect_url;
+    //                 }else{
+    //                     stopTextLoading(btnId);
+    //                 }
+    //             });
+    //         });
+    // });
+
+    $(document).on('click', '.btn-submit', function() {
+        var btnId = $(this).attr("id");
+        //startTextLoading(btnId);
+        submit_multipart_form("add-product-detail",function(status,response){
+            if(status){
+                window.location.href = response.redirect_url;
+            }else{
+                //stopTextLoading(btnId);
+            }
+        });
+    });
+    
+   
+
+</script>
+<script type="text/javascript" src="<%=WEBSITE_ADMIN_JS_PATH%>datatable_state_storage.js"></script>
+

@@ -1,0 +1,706 @@
+/* ##Device = Desktops ##Screen = 1281px to higher resolution desktops */
+
+
+
+@media (max-width: 1199px)  {
+/* 
+  div#map{width: 100% !important; height: auto !important;}
+  div#map svg{width: 100% !important; height: auto;} */
+
+  .bg_banner_coming img{height: auto;}
+
+}
+@media (min-width: 992px) and (max-width: 1472px) {
+}
+
+/*  ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .sake-made-shell {
+    padding: 0;
+    background-image: none;
+  }
+}
+
+/* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+
+@media (min-width: 992px) and (max-width: 1024px) {
+  .sake-made-shell {
+    padding: 0;
+    background-image: none;
+  }
+
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .presd-text-title {
+    font-size: 35px;
+  }
+  .presd-content {
+    padding-right: 50px;
+  }
+  .presd-user-img {
+    flex: 0 0 250px;
+    height: 310px;
+  }
+  .tab-table .tab-table-title,
+  .tab-table-text,
+  .tab-table-text span {
+    font-size: 18px;
+  }
+  .mid-img-500 {
+    height: 400px;
+  }
+  .grid-box {
+    grid-gap: 1rem;
+  }
+  .filtered-prod-box .prod-img {
+    padding: 5px;
+    margin: 0;
+  }
+  .filtered-prod-box .grid-inner {
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .sake-made-shell {
+    padding: 0;
+    background-image: none;
+  }
+  .sake-made-points {
+    margin: 25px 0;
+  }
+  .sake-made-title {
+    font-size: 26px;
+  }
+  .sake-made-para {
+    font-size: 16px;
+  }
+  header.header {
+    padding: 20px 10px;
+  }
+  .navbar-brand {
+    flex: 0 0 160px;
+    max-width: 160px;
+    margin-right: 0;
+  }
+  .menu_toggle {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid transparent;
+    outline: none !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+    margin-left: auto;
+  }
+  .menu_toggle:hover,
+  .menu_toggle:focus {
+    color: #d6d6d6;
+  }
+  .menu_toggle.change > div {
+    background-color: #fff;
+  }
+  .menu_toggle > div {
+    width: 25px;
+    height: 2px;
+    background-color: #000;
+    margin: 6px 0;
+    transition: 0.3s;
+  }
+  .navigation-list {
+    height: 100%;
+    position: fixed;
+    left: -100%;
+    z-index: 13;
+    top: 0;
+    display: block;
+    width: 310px;
+    transition: 600ms cubic-bezier(0.42, 0, 0, 0.99);
+    overflow-x: hidden;
+    padding: 15px 0px;
+  }
+  .nav-item {
+    display: block;
+    width: 100%;
+  }
+  .dropdown-menu {
+    transform: translate3d(0px, 0px, 0px) !important;
+    margin-top: 0 !important;
+  }
+  .navigation-list .nav-link {
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+  }
+  .navigation-list .nav-link.dropdown-toggle::after {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+  }
+  .nav-item.dropdown .dropdown-menu {
+    position: relative !important;
+  }
+  .menu_overlay {
+    width: 100%;
+    height: 100%;
+  }
+  .header_btns_content .nav-item {
+    margin: 10px 0;
+  }
+  .h_contact_info {
+    display: flex;
+    margin: 10px 0 10px 10px !important;
+  }
+  .header_btns_content .nav-link {
+    padding: 0;
+    width: initial;
+  }
+  .header_btns_content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header_btns_content .nav-item .btn {
+    margin: 0 0 0 15px;
+  }
+  .header_btns_content span.nav-link .fas {
+    font-size: 15px;
+    margin-right: 1px;
+  }
+  .grid-box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .slider-title {
+    font-size: 38px;
+  }
+  .sidebar-title {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .height-checkbox label {
+    padding: 0 0 0 15px;
+  }
+  .product-details-section .popular-sake-title {
+    font-size: 26px;
+  }
+}
+
+/* ##Device = Tablets, Ipads (landscape) ##Screen = B/w 768px to 1024px */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* ##Device = Low Resolution Tablets, Mobiles (Landscape) ##Screen = B/w 481px to 767px */
+
+@media only screen and (max-width: 768px) {
+  .enjoy-sake-tabbing .nav-item {
+    flex: 0 0 100%;
+  }
+  .grid-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .prod-img {
+    height: 340px;
+  }
+  .filtered-prod-box .prod-img {
+    margin: 0 auto;
+  }
+  .slider-shell .owl-dots {
+    left: 46%;
+    bottom: 0;
+  }
+  .sec-head-title {
+    font-size: 40px;
+  }
+  .sec-head-para {
+    font-size: 18px;
+  }
+  .popular-sake-section .section-heading,
+  .popular-product-section .section-heading {
+    margin-bottom: 20px;
+  }
+  .popular-sake-title {
+    font-size: 26px;
+  }
+  .section-padding {
+    padding: 30px 0;
+  }
+  .grid-inner {
+    margin: 5px 0;
+  }
+  .about-ozeki-img,
+  .about-ozeki-content {
+    width: 100%;
+  }
+  .about-title,
+  .subscribe-now .about-title {
+    font-size: 34px;
+  }
+  .about-para {
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .about-ozeki-content .btn-shell {
+    margin-top: 30px;
+  }
+  .about-ozeki-content .about-title,
+  .about-ozeki-content .about-para {
+    margin-bottom: 20px;
+  }
+  .social-icon-btn {
+    border: 1px solid #c7a700;
+    margin: 0 5px;
+    height: 36px;
+    width: 36px;
+    font-size: 18px;
+  }
+  .sake-img-big-height {
+    height: 490px;
+  }
+  .sake-imgs {
+    height: 400px;
+  }
+  .sake-title {
+    font-size: 30px;
+  }
+  .sake-descp {
+    width: calc(100% - 10%);
+  }
+  .sake-para {
+    font-size: 15px;
+  }
+  .mid-img-500 {
+    height: 340px;
+  }
+  .tab-table .tab-table-title,
+  .tab-table-text,
+  .tab-table-text span {
+    font-size: 16px;
+  }
+  .presd-text-para {
+    font-size: 16px;
+    text-align: justify;
+  }
+  .presd-text-title {
+    font-size: 30px;
+  }
+  .presd-points li::before {
+    height: 12px;
+    width: 12px;
+  }
+  .presd-points li {
+    padding-left: 20px;
+  }
+  .author-date {
+    font-size: 16px;
+  }
+  .author-name {
+    font-size: 20px;
+  }
+  .prod-download-shell {
+    margin-bottom: 20px;
+  }
+  .prod-info-gallery-shell {
+    margin: 20px -10px;
+  }
+  .buy-prod-btn .btn {
+    max-width: 220px;
+    font-size: 16px;
+  }
+  .bottle-qty-info {
+    min-width: 60px;
+    font-size: 13px;
+  }
+  
+  .product-filter-inner{flex-wrap: wrap;}
+  .size-box{margin-right: 0; width: 100%; margin-bottom: 15px;}
+  .size-box .size-btn{width: 100%;}
+  .sepe-search-bar{max-width: 100%;}
+  .product-filter-inner .form-group {width: 100%;}
+  .product-filter-inner .sepe-search-bar .form-control{min-width: 10px;}
+  .size-options{width: 100%;}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .slider-shell {
+    height: 520px;
+  }
+  .presd-user-img {
+    flex: 0 0 250px;
+    height: 310px;
+  }
+  .presd-content {
+    padding-right: 50px;
+  }
+  .text-section-title {
+    font-size: 30px;
+  }
+  .banner-content-box > i {
+    margin-left: 0;
+    margin-bottom: -30px;
+    width: 310px;
+  }
+  .timeline-shell .entries {
+    width: calc(100% - 15px);
+  }
+  
+
+
+
+}
+
+/* ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 565px */
+
+@media only screen and (max-width: 565px) {
+  .grid-box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .navigation-list {
+    width: 260px;
+  }
+  .slider-img {
+    height: 240px;
+    margin-top: 40px;
+  }
+  .slider-title {
+    font-size: 34px;
+  }
+  .slider-para {
+    margin: 0px 0px 10px;
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 14px;
+  }
+  .flex-center-slider {
+    justify-content: center;
+  }
+  .slider-text {
+    text-align: center;
+  }
+  .slider-shell .owl-dots {
+    left: 40%;
+    bottom: -35px;
+  }
+  .sec-head-title {
+    font-size: 28px;
+  }
+  .sec-head-para {
+    font-size: 16px;
+  }
+  .popular-sake-title {
+    font-size: 22px;
+  }
+  .popular-sakes-content {
+    height: 300px;
+  }
+  .about-ozeki-img {
+    height: 260px;
+  }
+  .prod-title {
+    font-size: 18px;
+  }
+  .prod-btn {
+    padding: 6px 15px;
+  }
+  .about-ozeki-content {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .subscribe-now .about-para {
+    padding: 0 0;
+  }
+  .subscribe-form {
+    max-width: 100%;
+  }
+  .subscribe-form .input-group-btn .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  .subscribe-form .form-control {
+    height: 44px;
+  }
+  .subscribe-form .input-group-btn .btn{
+    height: 44px;
+    line-height: 44px;
+    padding: 0px 10px;
+  }
+
+  .footer .navbar-brand {
+    display: block;
+    margin: 0 auto;
+  }
+  .copyright-text {
+    height: initial;
+    margin: 15px 0;
+  }
+  .social-icons-shell {
+    justify-content: center;
+  }
+  .sake-imgs {
+    height: 330px;
+  }
+  .sake-descp {
+    width: 100%;
+    padding: 15px;
+  }
+  .sake-type-info-shell .row.g-0 .col-xl-6:nth-child(even) {
+    order: 1;
+  }
+  .contact-us-form-box {
+    padding: 20px;
+    margin: 20px auto 10px;
+  }
+  .dist-title {
+    font-size: 22px;
+  }
+  .dist-info-box {
+    padding: 10px;
+    flex: 0 0 290px;
+    margin-right: 10px;
+  }
+  .dist-name {
+    font-size: 18px;
+  }
+  .distributor-content-shell,
+  .dist-map {
+    padding: 10px;
+  }
+  .dist-address,
+  .dist-contact-no {
+    font-size: 14px;
+  }
+  .coming-soon-inner-box {
+    margin: 20px 0 20px;
+  }
+  .coming-soon-content{
+    margin-top: -52px;
+  }
+  .coming-soon-content .sec-head-para{margin-bottom: 0 !important;}
+
+
+
+  .soon-lg-title {
+    font-size: 40px;
+  }
+  .soon-sm-title {
+    font-size: 20px;
+  }
+  .coming-soon-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  .tab-table thead tr th:first-child,
+  .tab-table tbody tr td:first-child {
+    max-width: 180px;
+    min-width: 180px;
+    width: 100%;
+  }
+  .tab-table thead tr th:first-child .tab-table-text,
+  .tab-table tbody tr td:first-child .tab-table-text {
+    white-space: initial;
+  }
+  .table-info-inner {
+    margin: 0 5px;
+  }
+  .table-info-inner .tab-table-text {
+    margin-left: 5px;
+  }
+  .enjoy-sake-tab-content .text-para {
+    font-size: 16px;
+  }
+  .presd-msg-header {
+    padding: 15px;
+    margin-bottom: 20px;
+    flex-direction: column-reverse;
+  }
+  .presd-content {
+    padding-right: 0;
+    text-align: center;
+  }
+  .presd-user-img {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .presd-points {
+    padding: 15px;
+  }
+  .text-para {
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  .prod-filtered-box {
+    padding: 15px;
+  }
+  .filter-option-box {
+    padding: 15px;
+    margin: 5px 0;
+  }
+  .product-button-shell li {
+    min-width: 150px;
+    margin: 5px;
+  }
+  .top-banner-content {
+    padding: 20px 0;
+  }
+  .banner-content-box {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+  .banner-content-box > i {
+    margin: 0;
+  }
+  .banner-text {
+    text-align: center;
+  }
+  .banner-text h6 {
+    font-size: 22px;
+  }
+  .banner-text h4 {
+    font-size: 40px;
+  }
+  .product-info-shell {
+    margin: 20px 0;
+    padding: 20px 10px;
+  }
+  .prod-slider-content {
+    padding-right: 0;
+    text-align: center;
+  }
+  .owl-carousel .owl-nav {
+    padding: 0;
+  }
+  .productSliderCarousel .owl-dots {
+    left: 40%;
+    bottom: -10px;
+  }
+  .productSliderCarousel .slider-img {
+    height: 290px;
+    margin-top: 20px;
+  }
+  .filter-options .lbl {
+    font-size: 14px;
+  }
+  .filter-title {
+    font-size: 20px;
+  }
+  .text-section-title {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+  .faq-section .accordion-item .card-header button {
+    font-size: 16px;
+    padding-left: 25px;
+  }
+  .faq-section .accordion-item .card-header button:before {
+    background-size: 12px;
+  }
+  .faq-section .accordion-item .card-header button:before {
+    top: 6px;
+  }
+  
+  .prod-inner-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .prod-inner-header .prod-origin {
+    margin: 10px 0 0;
+  }
+  .prod-info-list .text-para {
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .prod-info-title {
+    max-width: 110px;
+    min-width: 110px;
+    font-size: 14px;
+  }
+  .sidebar-title {
+    font-size: 20px;
+  }
+  .sake-made-points {
+    flex-direction: column;
+  }
+  .sake-made-points figcaption {
+    text-align: center !important;
+    margin: 30px 0 0 !important;
+  }
+  .sake-made-points:nth-child(even) figure {
+    order: -1;
+  }
+  .sake-made-points figure {
+    flex: 0 0 200px;
+    margin: 0;
+    height: 220px;
+  }
+  .timeline-shell .entries {
+    width: 100%;
+  }
+  .timeline-shell .entries:before,
+  .timeline-shell .entries:after {
+    left: 0;
+  }
+  .timeline-shell:before {
+    left: 0;
+  }
+  .timeline-shell .entries .entry:nth-child(odd),
+  .timeline-shell .entries .entry:nth-child(even) {
+    margin-right: initial;
+    margin-left: 70px;
+  }
+  .timeline-shell .entries .entry:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-shell .entries .entry {
+    margin-bottom: 70px;
+    width: calc(80% - 0px);
+    text-align: left !important;
+  }
+  .timeline-img {
+    height: 230px;
+  }
+  .timeline-shell .entries .entry:nth-child(odd) .title {
+    right: initial;
+    left: -30px;
+  }
+  .timeline-shell .entries .entry:nth-child(2n) .title:before {
+    left: -40px;
+  }
+  .timeline-shell .entries .entry .title:before {
+    right: initial;
+    left: -40px;
+  }
+  .timeline-shell .entries .entry .title:after,
+  .timeline-shell .entries .entry:nth-child(even) .title:after {
+    left: -40px;
+  }
+  .timeline-shell .entries .entry .title .text {
+    height: 60px;
+    width: 60px;
+    font-size: 18px;
+  }
+  /* .timeline-shell .entries .entry .sec-head-para {
+    display: none;
+  } */
+
+.social-icons-shell{height: 36px;}
+.map-bg{height: 250px; padding: 0;}
+.slider-image{height: auto; padding: 30px 0px;}
+
+.mid-img-400{height: auto;}
+.mid-img-500 img, .mid-img-400 img{height: auto;}
+.mid-img-400 p:empty{display: none;}
+.mid-img-500{height: auto;}
+.banner-bg-img img{height: auto;}
+
+
+}

@@ -1,0 +1,265 @@
+
+<!-- Banner Section Starts -->
+
+<section class="top-banner-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="top-banner-content">
+                    <figure class="banner-bg-img">
+                        <img src="<%= banner_detail.full_image_path %>">
+                    </figure>
+                    <figcaption class="banner-content-box">
+                        <div class="banner-text">
+                            <h6><%= banner_detail.title %></h6>
+                            <h4><%= banner_detail.subtitle %></h4>
+                        </div>
+                    </figcaption>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Banner Section Ends -->
+
+<!-- Product Details Section Starts -->
+
+<section class="product-details-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-md-4">
+                <div class="sidebar-filter-shell">
+                    <h3 class="sidebar-title">Choose Products Type</h3>
+                    <div class="sidebar-inner-box sidebar-white-bg">
+                     <ul>
+                        <% if(products_specification && products_specification.categories && products_specification.categories.length > NOT){
+                            products_specification.categories.map((records,index)=>{
+                                var active = (records.name && records.name == products_details.category_name) ? 'active' : ''
+                                %>
+                                <li class="<%= active%>">
+                                    <a href="<%= WEBSITE_URL%>products/#<%= records.slug%>">
+                                    <%= (records.name) ? records.name : 'N/A'%>
+                                    </a>
+                                </li>
+                           <% }) %>
+                        <% } %>
+                     </ul>      
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-md-8">
+                <h4 class="popular-sake-title text-dark px-0"><%= (products_details.product_name) ? products_details.product_name : 'N/A'%></h4>
+                <div class="owl-carousel owl-theme prodSortSliderCarousel">
+                    <%  if(products_details && Object.keys(products_details).length>NOT){ 
+                            if(products_details && products_details.size_images.length > NOT){ 
+                                products_details.size_images.map((records,index)=>{ 
+                                    if(records.image){
+                                        %>
+                                        <div class="item">
+                                            <figure class="prod-img hovereffect">
+                                                <span class="bottle-qty-info"><%= (records.size_name) ? records.size_name : 'N/A'%></span>
+                                                <img src="<%= records.full_image_path%>">
+                                                <div class="overlay prod-overlay-descp">
+                                                    <h2 class="p-o-title"><%= (products_details.product_name) ? products_details.product_name : 'N/A'%></h2>
+                                                    <p class="p-o-para"><%= (products_details.flavor) ? products_details.flavor : 'N/A'%></p>
+                                                    <div class="download-btn-bg">    
+                                                     <a href="<%= records.full_image_path%>" target="_blank" download="" class="btn download-btn">
+                                                         <i class="fas fa-cloud-download-alt"></i>
+                                                          <span>Download</span> 
+                                                     </a>
+                                                    </div>    
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    <% }
+                                })
+                            }else{ %>
+                                <div class="item">
+                                    <figure class="prod-img hovereffect">
+                                        <span class="bottle-qty-info">N/A</span>
+                                        <img src="<%= NO_IMAGE_AVAILABLE%>">
+                                        <div class="overlay prod-overlay-descp">
+                                            <h2 class="p-o-title">No Product Available</h2>
+                                            <p class="p-o-para">N/A</p>
+                                            <div class="download-btn-bg">    
+                                             <a href="" target="_blank" download="" class="btn download-btn">
+                                                 <i class="fas fa-cloud-download-alt"></i>
+                                                  <span>Download</span> 
+                                             </a>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                                <% }
+                        }else{  %>
+                            <div class="item">
+                                <figure class="prod-img hovereffect">
+                                    <span class="bottle-qty-info">N/A</span>
+                                    <img src="<%= NO_IMAGE_AVAILABLE%>">
+                                    <div class="overlay prod-overlay-descp">
+                                        <h2 class="p-o-title">No Product Available</h2>
+                                        <p class="p-o-para">N/A</p>
+                                        <div class="download-btn-bg">    
+                                         <a href="" target="_blank" download="" class="btn download-btn">
+                                             <i class="fas fa-cloud-download-alt"></i>
+                                              <span>Download</span> 
+                                         </a>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        <%}
+                    %>
+                    
+                    
+                </div>
+                <%
+                    if(products_details.is_sale_on == 1){
+                %>
+                    <div class="btn-shell buy-prod-btn">
+                        <a  href="<%= WEBSITE_URL%>products/vinoshipper%>" class="btn">buy now</a>
+                    </div>
+                <%}%>
+                <div class="prod-inner-header">
+                    <h5 class="prod-inner-name">Ozeki Sake Item Profile</h5>
+                    <h5 class="prod-origin"><%= (products_details.product_origin) ? products_details.product_origin : 'N/A'%></h5>
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="prod-full-info-shell">
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Type</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.category_name) ? products_details.category_name : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Flavor</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.flavor) ? products_details.flavor : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Characteristics</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.characteristics) ? products_details.characteristics : 'N/A'%> </p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Sake Meter Value</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.sake_meter) ? products_details.sake_meter : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Alcohol</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.alcohol_level) ? products_details.alcohol_level : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Acidity</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.acidity_level) ? products_details.acidity_level : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Polish Rate</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.polish_rate) ? products_details.polish_rate : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Description</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%- (products_details.description) ? nl2br(products_details.description) : 'N/A'%></p>
+                            </li>
+                            <li class="prod-info-list">
+                                <p class="prod-info-title">Food Pairing</p>
+                                <span class="text-separator">:</span>
+                                <p class="text-para"><%= (products_details.pairing_foods) ? products_details.pairing_foods : 'N/A'%></p>
+                            </li>
+                            
+                        </ul>
+                        <ul class="prod-info-gallery-shell">
+                            <% if(products_details.pairing_foods_images && products_details.pairing_foods_images.length > NOT){
+                                products_details.pairing_foods_images.map((records,index)=>{
+                                    var image = (records.image) ? PRODUCTS_URL+records.image : ''
+                                    if(image){                               
+                                    %>
+                                    <li class="prod-info-gallery-list">
+                                        <figure class="prod-gall-img">
+                                            <img src="<%= image%>">
+                                        </figure>
+                                    </li>
+                                        <% 
+                                    }
+                                }) %>
+                            <% } %>
+                        </ul>
+                        <h3 class="sidebar-title">Download POS</h3>
+                        <ul class="prod-download-shell">
+                            <li><a href="<%= (products_details.product_sheet) ? PRODUCTS_URL+products_details.product_sheet : '#!'%>" class="down-links" download>Product sheet (pdf)</a></li>
+                            <li><a href="<%= (products_details.shelf_talker) ? PRODUCTS_URL+products_details.shelf_talker : '#!'%>" class="down-links" download>Shelf talker (pdf)</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-4">
+                        <h3 class="sidebar-title">Taste chart</h3>
+                        <ul class="tastebar">
+                            <% if(products_specification && products_specification.sweetness && products_specification.sweetness.length > NOT){
+                                products_specification.sweetness.map((records,index)=>{
+                                    var selected = (records.name && records.name == products_details.sweetness_name) ? 'salmon-text' : ''
+                                    %>
+                                    <li class="tastebar-step isCurrent <%= selected%>">
+                                        <svg class="tastebar-icon">
+                                            <use xlink:href="#checkmark-bold"></use>
+                                        </svg>
+                                        <span class="tastebar-stepLabel"><%= (records.name) ? records.name : 'N/A'%></span>
+                                    </li>
+                               <% }) %>
+                            <% } %>
+                        </ul>
+                        <ul class="tastebar">
+                            <% if(products_specification && products_specification.bodies && products_specification.bodies.length > NOT){
+                                products_specification.bodies.map((records,index)=>{
+                                    var selected = (records.name && records.name == products_details.body_name) ? 'isCurrent bar-red-text' : ''
+                                    %>
+                                    <li class="tastebar-step <%= selected%>">
+                                        <svg class="tastebar-icon">
+                                            <use xlink:href="#checkmark-bold"></use>
+                                        </svg>
+                                        <span class="tastebar-stepLabel"><%= (records.name) ? records.name : 'N/A'%></span>
+                                    </li>
+                               <% }) %>
+                            <% } %>
+                        </ul>
+                        <h3 class="sidebar-title">Serving Temperature</h3>
+                        <ul class="sidebar-white-bg serve-temp-info">
+                            <% if(products_details && products_details.serving_temperature && products_details.serving_temperature.length > NOT){
+                                products_details.serving_temperature.map((records,index)=>{
+                                    index++
+                                    if(records.category_id){
+                                    %>
+                                    <li class="serve-temp-list">
+                                        <i class="serve-type-icon"><img src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/images/drink-<%= index%>-img.svg"></i>
+                                        <h6 class="serve-name-title"><%= (records.temp_type) ? records.temp_type :''%><span><%= (records.temperature) ? records.temperature :''%></span></h6>
+                                        <div class="drink-rating">
+                                            <%
+                                                var rating = (records.rating) ? records.rating : NOT;
+                                                var star   = NOT;
+                                                for (star; star < rating; star++) { %>
+                                                    <i><img src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/images/gold-rating.svg"></i>
+                                            <% } %>
+                                        </div>
+                                    </li>
+                               <% }}) %>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Details Section Ends -->
+
+<!-- Subscription Section Starts -->
+
+<%- include("../../elements/newsletter.html");%>
+
+<!-- Subscription Section Ends -->

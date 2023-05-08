@@ -1,0 +1,2152 @@
+@charset "UTF-8";
+:root {
+  --header-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  color: #000;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: "Nunito-Regular";
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+b,
+strong {
+  font-weight: 800;
+}
+
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0;
+}
+.btn {
+  background-color: #e60013;
+  color: #fff;
+  border-radius: 0;
+  padding: 8px 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Nunito-Bold";
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background-color: #a21520;
+  color: #fff;
+}
+.btn i {
+  position: relative;
+  right: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btn:hover > i {
+  right: -5px;
+}
+.section-padding {
+  padding: 60px 0;
+}
+.sec-head-title {
+  font-family: "Playfair-Bold";
+  font-size: 46px;
+}
+.sec-head-para {
+  font-size: 18px;
+  max-width: 810px;
+  margin: auto;
+  padding: 0 15px;
+  color: #4a5874;
+}
+.f-width-para.sec-head-para {
+  max-width: 975px;
+}
+.text-red {
+  color: #e60013;
+}
+.white-bg-btn {
+  border-color: #fff;
+  background-color: transparent;
+}
+.container-fluid {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.gradient-wrapper {
+  background: rgb(235, 236, 243);
+  background: linear-gradient(
+    180deg,
+    rgba(235, 236, 243, 1) 100px,
+    rgba(255, 255, 255, 1) 200px,
+    rgba(255, 255, 255, 1) 300px
+  );
+}
+.flex-col {
+  display: flex;
+}
+.flex-col > div {
+  flex: 1;
+}
+.text-section-title {
+  font-family: "Playfair-Bold";
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+.text-para {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #4a5874;
+}
+
+/* ======================= Header Css Only ======================= */
+
+/* .bodyCls header.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+} */
+.menuBodyCls {
+  overflow: hidden;
+}
+.site_content {
+  padding-top: var(--header-height);
+}
+header.header .container-fluid {
+  padding-left: inherit;
+  padding-right: inherit;
+}
+header.header {
+  background-color: #fff;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  transition: transform 0.4s;
+  box-shadow: 0 0px 16px 0px rgb(0 0 0 / 18%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 99;
+}
+.scroll-down .header {
+  transform: translate3d(0, -100%, 0);
+}
+.scroll-up .header {
+  transform: none;
+}
+.navbar-brand {
+  flex: 0 0 220px;
+  max-width: 220px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.navigation-list {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.navigation-list .nav-link {
+  background-color: transparent !important;
+  color: #3b3b3b;
+  font-size: 16px;
+  padding: 0.5rem 20px;
+  transition: 0.2s;
+  text-transform: capitalize;
+  font-family: "Nunito-Bold";
+}
+
+.nav-item.active .nav-link {
+  color: #e60013;
+}
+.nav-item.active .nav-link:after {
+  background-image: url("../images/chevron-down-red.svg") !important;
+  }
+.navigation-list .nav-link:hover,
+.navigation-list .nav-link.dropdown-toggle.show {
+  color: #e60013;
+}
+.navigation-list .nav-link.dropdown-toggle::after {
+  border: 0;
+  height: 12px;
+  width: 12px;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  vertical-align: inherit;
+  background-image: url("../images/chevron-down-black.svg");
+}
+.navigation-list .nav-link.dropdown-toggle.show::after,
+.navigation-list .nav-link.dropdown-toggle:hover::after {
+  background-image: url("../images/chevron-down-red.svg");
+}
+.nav-item.dropdown .nav-link:focus {
+  box-shadow: none;
+}
+.dropdown-menu {
+  padding: 0;
+  box-shadow: 0 3px 6px 0px rgb(0 0 0 / 12%);
+  border-radius: 0;
+  border-color: #e1e1e1;
+  margin-top: 20px !important;
+  min-width: 12rem;
+}
+.dropdown-item {
+  font-size: 16px;
+  font-family: "Nunito-SemiBold";
+  color: #000;
+  padding: 10px 15px;
+}
+.dropdown-item.active {
+  background-color: #e60013;
+  color: #fff;
+}
+.menu_toggle {
+  display: none;
+}
+nav.nav_shell {
+  display: flex;
+  width: 100%;
+}
+.nav-collsaped {
+  position: fixed !important;
+  background-color: #000;
+  left: 0 !important;
+  transition: 0.5s;
+  padding: 20px 10px;
+}
+.menu_overlay {
+  display: none;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 5s;
+}
+.body-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline !important;
+  transition: 5s;
+}
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 0px);
+  -moz-transform: rotate(-45deg) translate(-5px, 0px);
+  -o-transform: rotate(-45deg) translate(-5px, 0px);
+  -ms-transform: rotate(-45deg) translate(-5px, 0px);
+  transform: rotate(-45deg) translate(-5px, 0px);
+  width: 15px;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-5px, 0px);
+  -moz-transform: rotate(45deg) translate(-5px, 0px);
+  -o-transform: rotate(45deg) translate(-5px, 0px);
+  -ms-transform: rotate(45deg) translate(-5px, 0px);
+  transform: rotate(45deg) translate(-5px, 0px);
+  width: 15px;
+}
+
+/* ======================= Header Css Only ======================= */
+
+/* ======================= Owl Slider Css Only ======================= */
+
+.owl-carousel .owl-dots {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: inline-block;
+  background-color: rgb(0 0 0 / 0.25);
+  padding: 5px;
+  border-radius: 20px;
+}
+.owl-carousel button.owl-dot.active {
+  background: #e60013;
+}
+.owl-carousel button.owl-dot {
+  border-radius: 50px;
+  outline: none !important;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  background: #fff;
+  margin-left: 3px;
+  margin-right: 3px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.owl-carousel button.owl-dot:hover {
+  background: #e6001380;
+}
+.owl-carousel .owl-nav .owl-prev:hover,
+.owl-carousel .owl-nav .owl-next:hover {
+  background: #e60013 !important;
+  color: #fff !important;
+}
+.owl-carousel .owl-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+.owl-carousel .owl-nav .owl-prev {
+  margin-right: 15px;
+}
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next {
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  box-shadow: 0 4px 10px 0px #00000025;
+  background-color: #fff !important;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  color: #4a5874 !important;
+  font-size: 20px !important;
+  display: block;
+  border-radius: 50%;
+}
+
+.owl-carousel .owl-nav .owl-next:focus,
+.owl-carousel .owl-nav .owl-prev:focus {
+  outline: none;
+}
+.owl-carousel .nav-btn {
+  background-position: center !important;
+  height: 100%;
+  width: 100%;
+  background-size: 12px !important;
+  background-repeat: no-repeat !important;
+}
+.owl-carousel .prev-slide {
+  background: url("../images/blue-left-chevron.svg");
+}
+.owl-carousel .next-slide {
+  background: url("../images/blue-right-chevron.svg");
+}
+
+/* ======================= Owl Slider Css Only ======================= */
+
+/* ======================= Slider Content Css Only ======================= */
+
+.slider-shell {
+
+}
+.slider-image{
+  height: 640px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.slider-title {
+  font-size: 55px;
+  font-family: "Playfair-Bold";
+}
+.slider-para {
+  font-size: 22px;
+  margin: 0px 0px 25px;
+  font-family: "Nunito-Bold";
+}
+.slider-img {
+  height: 450px;
+  user-select: none;
+  pointer-events: none;
+}
+.slider-img img {
+  height: 100%;
+  width: initial !important;
+  object-position: center;
+  margin: auto;
+}
+.flex-center-slider {
+  display: flex;
+  align-items: center;
+}
+.slider-shell .owl-dots {
+  position: absolute;
+  left: 45%;
+  bottom: -55px;
+}
+/* ======================= Slider Content Css Only ======================= */
+
+/* ======================= Popular Sake Section Css Only ======================= */
+
+.popular-sake-section .section-heading {
+  margin-bottom: 40px;
+}
+.popular-sakes-content {
+  height: 490px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.popular-sakes-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.popular-sakes-content .image-box{position: absolute; left: 0; top: 0; width: 100%; height: 100%;;} 
+.popular-sakes-content .image-box img{width: 100%; height: 100%; object-fit: cover;}
+
+
+
+
+
+.popular-sakes-content .btn-shell {
+  position: relative;
+}
+.popular-sake-title {
+  color: #fff;
+  font-size: 36px;
+  font-family: "Playfair-Bold";
+  margin: 0 auto 20px;
+  position: relative;
+  padding: 0 15px;
+}
+.sake-bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.sake-img-big-height {
+  height: 530px;
+}
+.span-block {
+  display: block;
+}
+/* ======================= Popular Sake Section Css Only ======================= */
+
+/* ======================= Popular Product Section Css Only ======================= */
+
+.popular-product-section .section-heading {
+  margin-bottom: 40px;
+}
+.grid-box {
+  max-width: 100%;
+  display: grid;
+  grid-gap: 1rem 3rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-inner {
+  text-align: center;
+  margin: 20px 0;
+}
+.prod-img {
+  background-color: #f7f9fa;
+  /* max-width: 350px; */
+  margin: 0 auto 20px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+.prod-img img {
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: scale-down;
+}
+.prod-text-shell {
+  max-width: 350px;
+  margin: auto;
+}
+.prod-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 18px;
+}
+.prod-btn {
+  font-size: 14px;
+  margin-top: 5px;
+  background-color: #c7a700;
+  border: 0;
+  padding: 10px 26px;
+}
+.prod-overlay-descp {
+  text-align: center;
+  color: #fff;
+}
+.prod-overlay-descp .p-o-title {
+  font-family: "Playfair-Bold";
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.prod-overlay-descp .p-o-sm-title {
+  text-transform: capitalize;
+  font-family: "Nunito-Bold";
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.prod-overlay-descp .p-o-para {
+  font-family: "Nunito-SemiBold";
+  font-size: 16px;
+  text-transform: capitalize;
+}
+.hovereffect {
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+.hovereffect .overlay {
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(199 167 0 / 0.8);
+  left: 0;
+  top: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.hovereffect:hover img {
+  filter: blur(2px);
+}
+.hovereffect h2 {
+  position: relative;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+.hovereffect p {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+.hovereffect:hover p,
+.hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* ======================= Popular Product Section Css Only ======================= */
+
+/* ======================= About Ozeki Section Css Only ======================= */
+
+.about-ozeki-section {
+  background-color: #f7f9fa;
+}
+.about-title {
+  font-size: 38px;
+  font-family: "Playfair-Bold";
+}
+.about-para {
+  font-size: 18px;
+  color: #4a5874;
+  line-height: 30px;
+}
+.about-ozeki-content .about-title,
+.about-ozeki-content .about-para {
+  margin-bottom: 30px;
+}
+.about-ozeki-img,
+.about-ozeki-content {
+  width: calc(100% - 10%);
+}
+.about-ozeki-img {
+  height: 390px;
+}
+.about-ozeki-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.about-ozeki-content .text-red {
+  text-transform: uppercase;
+}
+
+/* ======================= About Ozeki Section Css Only ======================= */
+
+/* ======================= Subscribe Now Section Css Only ======================= */
+
+.subscribe-now {
+  max-width: 720px;
+  margin: auto;
+}
+.subscribe-now .about-para {
+  padding: 0 50px;
+}
+.subscribe-form {
+  max-width: calc(100% - 150px);
+  margin: auto;
+}
+.subscribe-form .form-control {
+  height: 55px;
+  border-radius: 0;
+}
+.subscribe-form .input-group-btn .btn {
+  height:55px;
+  line-height:55px;
+  font-size: 14px;
+  padding: 0px 35px;
+}
+.form-control::placeholder {
+  color: #a7b1c6;
+  opacity: 1;
+}
+
+/* ======================= Subscribe Now Section Css Only ======================= */
+
+/* ======================= Footer Section Css Only ======================= */
+
+footer.footer {
+  border-top: 2px solid #e7ebed;
+  padding: 15px 0;
+}
+.copyright-text {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #a7b1c6;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-icons-shell {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+.social-icon-btn {
+  border: 2px solid #c7a700;
+  margin: 0 10px;
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #c7a700;
+  font-size: 20px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.social-icon-btn:hover {
+  background-color: #c7a700;
+  color: #fff;
+}
+
+/* ======================= Footer Section Css Only ======================= */
+
+/* ======================= Types Of Sakes Section Css Only ======================= */
+
+.sake-type-info-shell {
+  padding-top: 60px;
+}
+.sake-descp {
+  width: calc(100% - 20%);
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sake-title {
+  color: #000000;
+  font-family: "Playfair-Regular";
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.sake-imgs {
+  padding: 50px 40px 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  width: 100%;
+  text-align: center;
+}
+.sake-imgs img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.sake-descp .btn {
+  font-size: 14px;
+}
+
+/* ======================= Types Of Sakes Section Css Only ======================= */
+
+/* ======================= Contact Us Section Css Only ======================= */
+
+.links-shell {
+  text-align: center;
+}
+.content-links {
+  font-size: 18px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: "Playfair-Bold";
+}
+.red-link:hover {
+  color: #a21520;
+}
+.red-link {
+  color: #e60013;
+}
+.contact-us-form-box {
+  background-color: #fff;
+  max-width: 500px;
+  padding: 40px 50px;
+  width: 100%;
+  box-shadow: 0px 6px 16px 0px #0000001a;
+  border: 1px solid #e1e1e1;
+  margin: 50px auto 10px;
+}
+.contact-us-title {
+  font-size: 24px;
+  font-family: "Playfair-Bold";
+  color: #4a5874;
+}
+.form-label {
+  font-size: 14px;
+  color: #000000;
+  font-family: "Nunito-SemiBold";
+  text-transform: capitalize;
+}
+.mandat-star {
+  color: #e60013;
+}
+.form-control::placeholder {
+  color: #a7b1c6;
+}
+.form-control {
+  font-size: 14px;
+  border-radius: 0;
+  border: 1px solid #dfe5e8;
+  min-height: 42px;
+}
+textarea.form-control {
+  min-height: 100px;
+}
+.form-btn-shell .btn {
+  width: 100%;
+}
+.checkboxshell {
+  display: flex;
+  margin-bottom: 5px;
+}
+.cbx {
+  position: relative;
+  top: 1px;
+  min-width: 17px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #c8ccd4;
+  border-radius: 3px;
+  vertical-align: middle;
+  transition: background 0.1s ease;
+  cursor: pointer;
+}
+.cbx:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 5px;
+  height: 11px;
+  opacity: 0;
+  transform: rotate(45deg) scale(0);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transition: all 0.3s ease;
+  transition-delay: 0.15s;
+}
+.strong-label {
+  font-family: "Nunito-ExtraBold" !important;
+}
+.lbl {
+  margin-left: 5px;
+  user-select: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.cbxcls:checked ~ .cbx {
+  border-color: transparent;
+  background: #c7a700;
+  animation: jelly 0.6s ease;
+}
+.cbxcls:checked ~ .cbx:after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+@-moz-keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+@-o-keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+@keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+/* ======================= Contact Us Section Css Only ======================= */
+
+/* ======================= Careers Section Css Only ======================= */
+
+.file-group {
+  position: relative;
+  background-color: #f6f6f6;
+  border: 2px dashed #d8e0e5;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.file-group i {
+  display: inline-block;
+}
+.file-text {
+  margin-bottom: 0;
+  color: #4a5874;
+  flex: 1;
+  text-align: center;
+}
+.file-text .red-text {
+  color: #e60013;
+}
+.file-group .form-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-height: initial;
+  width: 100%;
+  opacity: 0;
+}
+.file-info-text {
+  font-size: 80%;
+  display: block;
+  margin-top: 5px;
+  color: #a7b1c6;
+  font-style: italic;
+}
+
+/* ======================= Careers Section Css Only ======================= */
+
+/* ======================= Distributor Section Css Only ======================= */
+
+.distributor-content-box {
+  background-color: #fff;
+  box-shadow: 0 4px 14px 0px rgb(0 0 0 / 9%);
+  border: 1px solid #e1e1e1;
+}
+.dist-map {
+  padding: 20px;
+}
+.distributor-content-shell {
+  padding: 20px;
+  border-top: 1px solid #e1e1e1;
+}
+.dist-title {
+  color: #e60013;
+  font-size: 30px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #e60013;
+  display: inline-block;
+  font-family: "Playfair-Bold";
+}
+.dist-list {
+  margin: 10px 0;
+  display: flex;
+  overflow: auto;
+  padding: 0 0 10px;
+}
+.dist-info-box {
+  padding: 20px;
+  background-color: #f7f7f7;
+  margin-right: 20px;
+  flex: 0 0 440px;
+  max-width: 440px;
+}
+.dist-name {
+  font-family: "Playfair-Bold";
+  font-size: 22px;
+  color: #000000;
+  position: relative;
+  padding-bottom: 15px;
+}
+.dist-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 85px;
+  background-color: #e60013;
+}
+.dist-address,
+.dist-contact-no {
+  color: #4a5874;
+  font-size: 16px;
+  margin: 0;
+}
+.dist-contact-no {
+  text-decoration: none;
+}
+.dist-contact-no:hover {
+  color: #e60013;
+}
+
+/* ======================= Distributor Section Css Only ======================= */
+
+/* ======================= Coming Soon Section Css Only ======================= */
+
+.coming-soon-section {
+  background-repeat: no-repeat;
+  background-position: -160px -150px;
+  background-size: 120%;
+  /* background-image: url("../images/bottles-bg-img.png"); */
+  position: relative;
+}
+.coming-soon-inner-box {
+  margin: 100px 0;
+}
+.coming-soon-content {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+.soon-sm-title {
+  font-family: "Playfair-Bold";
+  font-size: 26px;
+  color: #000000;
+}
+.soon-sm-title span {
+  display: block;
+}
+.soon-lg-title {
+  font-size: 80px;
+  font-family: "Playfair-Bold";
+  color: #e60013;
+}
+
+/* ======================= Coming Soon Section Css Only ======================= */
+
+/* ======================= Banner Section Css Only ======================= */
+
+.top-banner-content {
+  overflow: hidden;
+  position: relative;
+  padding: 40px 0;
+  margin: 30px 0;
+}
+.banner-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  text-align: center;
+}
+.banner-bg-img:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* backdrop-filter: blur(10px); */
+}
+.banner-bg-img img {
+  height: 100%;
+  width:100%;
+  object-position: center;
+}
+.banner-content-box {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-content-box > i {
+  display: inline-block;
+  margin-left: -100px;
+  margin-right: 60px;
+  user-select: none;
+  margin-bottom: -70px;
+}
+.banner-text h6 {
+  color: #000000;
+  font-size: 32px;
+  margin-bottom: 0;
+  font-family: "Playfair-Bold";
+}
+.banner-text h4 {
+  color: #e60013;
+  margin-bottom: 0;
+  font-size: 58px;
+  font-family: "Playfair-Bold";
+}
+
+/* ======================= Banner Section Css Only ======================= */
+
+/* ======================= Product Section Css Only ======================= */
+
+.product-button-shell {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 879px;
+  margin: auto;
+}
+.product-button-shell li {
+  border: 1px solid #e60013;
+  min-width: 189px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.product-button-shell li a {
+  text-decoration: none;
+  font-family: "Nunito-SemiBold";
+  padding: 8px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #e60013;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  display: block;
+}
+.product-button-shell li a:hover {
+  background-color: #e60013;
+  color: #fff;
+}
+.search-taste-filter {
+  text-align: center;
+  margin: 20px 0 30px;
+}
+.search-taste-filter .btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  min-width: 295px;
+}
+.product-info-shell {
+  padding: 50px;
+  margin: 30px 0;
+  background-color: #f7f9fa;
+}
+.prod-slider-content {
+  padding-right: 20px;
+}
+.prod-slider-content .sake-title {
+  font-family: "Playfair-Bold";
+}
+.productSliderCarousel .slider-img {
+  height: 380px;
+}
+.productSliderCarousel .owl-item.active.center .slider-img img {
+  padding: 20px;
+}
+.productSliderCarousel .owl-item.active.center {
+  transform: scale(1.3);
+}
+.productSliderCarousel .slider-img img {
+  object-fit:contain;
+  padding: 40px !important;
+  
+}
+.productSliderCarousel .owl-dots{padding: 15px 5px;}
+
+.productSliderCarousel .owl-dots,
+.prodSortSliderCarousel .owl-dots {
+  position: relative;
+  background-color: transparent;
+  left:0;
+  width: 100%;
+  text-align: center;
+}
+.productSliderCarousel button.owl-dot,
+.prodSortSliderCarousel button.owl-dot {
+  background: #9fa4ad;
+}
+.prod-filtered-box {
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 14px 0px rgb(0 0 0 / 9%);
+  border: 1px solid #e1e1e1;
+}
+.filter-title {
+  font-family: "Playfair-Bold";
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  color: #000;
+}
+.filter-option-box {
+  background-color: #f7f9fa;
+  margin: 10px 0;
+  padding: 20px;
+}
+.filter-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.filter-options .checkboxshell {
+  margin: 5px 8px;
+  justify-content: center;
+  display: inline-flex;
+  border: 1px solid #e60013;
+  padding: 8px;
+  border-radius: 30px;
+  min-width: 115px;
+}
+.filter-options .cbxcls:checked ~ .cbx {
+  background: #e60013;
+}
+.filter-options .cbx {
+  border-color: #e60013;
+}
+.filter-options .lbl {
+  font-size: 15px;
+  color: #e60013;
+  font-family: "Nunito-Bold";
+  text-transform: capitalize;
+  line-height: initial;
+}
+/* ======================= Product Section Css Only ======================= */
+
+/* ======================= President Message Section Css Only ======================= */
+
+.presd-msg-header {
+  background-color: #f7f9fa;
+  margin-bottom: 40px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+}
+.presd-text-title {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: "Playfair-Bold";
+  color: #000000;
+}
+.presd-text-para {
+  font-size: 20px;
+  color: #4a5874;
+  margin-bottom: 20px;
+}
+.presd-content {
+  flex: 1;
+  padding-right: 80px;
+}
+.presd-user-img {
+  flex: 0 0 390px;
+  max-width: 390px;
+  height: 360px;
+}
+.presd-user-img img {
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.presd-points {
+  padding: 20px;
+  background-color: #f7f9fa;
+}
+.presd-points li {
+  position: relative;
+  padding-left: 30px;
+}
+.presd-points li::before {
+  content: "";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  background-color: #e60013;
+}
+.presd-points li:last-child .text-para {
+  margin-bottom: 0;
+}
+.author-info {
+  margin-top: 30px;
+  text-align: right;
+}
+.author-date {
+  margin-bottom: 0;
+  font-size: 20px;
+  color: #000000;
+}
+.author-name {
+  font-size: 24px;
+  margin-bottom: 0;
+  color: #000000;
+}
+.mid-img-400 {
+  height: 400px;
+  margin-bottom: 30px;
+}
+.mid-img-500 {
+  height: 500px;
+  margin-bottom: 30px;
+}
+.mid-img-500 img,
+.mid-img-400 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ======================= President Message Section Css Only ======================= */
+
+/* ======================= Enjoy Sakes Section Css Only ======================= */
+
+.enjoy-sake-tabbing {
+  justify-content: center;
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 30px;
+}
+.enjoy-sake-tabbing .nav-item {
+  flex: 1;
+  background-color: #e6e6e6;
+}
+.enjoy-sake-tabbing .nav-item .nav-link {
+  font-size: 16px;
+  font-family: "Nunito-SemiBold";
+  color: #000;
+  text-transform: capitalize;
+  min-width: 200px;
+  text-align: center;
+  border-radius: 0;
+  border: 0;
+  border-right: 1px solid #fff;
+  padding: 12px;
+}
+.enjoy-sake-tabbing .nav-item .nav-link:hover {
+  background-color: #a21520;
+  color: #fff;
+}
+.enjoy-sake-tabbing .nav-item.show .nav-link,
+.enjoy-sake-tabbing .nav-link.active {
+  background-color: #e60013;
+  color: #fff;
+}
+.tabbing-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Playfair-Bold";
+}
+.enjoy-sake-tab-content .text-para {
+  font-size: 18px;
+}
+.sake-type-btn {
+  text-align: center;
+}
+.sake-type-btn .btn {
+  min-width: 350px;
+}
+.rules-list h5 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-family: "Playfair-Bold";
+}
+.tab-table-text {
+  font-size: 22px;
+  margin-bottom: 0;
+  white-space: nowrap;
+  font-family: "Playfair-Bold";
+}
+.tab-table-text span {
+  display: block;
+  font-family: "Nunito-ExtraLight";
+  color: #4a5874;
+  font-size: 18px;
+}
+.tab-table {
+  text-align: center;
+}
+.tab-table thead tr th:first-child,
+.tab-table tbody tr td:first-child {
+  text-align: left;
+  width: 300px;
+}
+.tab-table .tab-table-title {
+  font-size: 22px;
+  color: #4a5874;
+  font-family: "Playfair-Bold";
+}
+.tab-table tbody,
+.tab-table thead {
+  vertical-align: middle;
+}
+.tab-table tbody td {
+  padding: 15px 20px;
+}
+.tab-table-shell {
+  background-color: #fff;
+  box-shadow: 0 4px 14px 0px rgb(0 0 0 / 9%);
+  border: 1px solid #e1e1e1;
+}
+.tab-table thead th {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e1e1e1 !important;
+}
+.table-info-bar {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.table-info-inner {
+  display: flex;
+  align-items: center;
+}
+.table-info-inner {
+  margin: 0 20px;
+}
+.table-info-inner:first-child {
+  margin-left: 0;
+}
+.table-info-inner:last-child {
+  margin-right: 0;
+}
+.table-info-inner .tab-table-text {
+  margin-left: 10px;
+}
+.table-img {
+  min-width: 20px;
+  height: 20px;
+}
+.table-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+/* ======================= Enjoy Sakes Section Css Only ======================= */
+
+/* ======================= FAQ Section Css Only ======================= */
+
+.faq-section .accordion-item > .card {
+  border: 0;
+  margin-bottom: 20px;
+  box-shadow: none;
+  background-color: transparent;
+}
+.faq-section .accordion-item .card-header button {
+  font-size: 20px;
+  width: 100%;
+  text-align: left;
+  color: #000;
+  font-family: "Playfair-Bold";
+  text-transform: capitalize;
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
+  padding-left: 35px;
+}
+.faq-section .accordion-item .card-header button:focus,
+.faq-section .accordion-item .card-header button:hover {
+  text-decoration: none;
+}
+.faq-section .accordion-item .card-header button::after {
+  content: none;
+}
+.faq-section .accordion-item .card-header button:before {
+  content: "";
+  background-image: url("../images/brown-triangle.svg");
+  position: absolute;
+  transform: rotate(0);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  left: 0;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  background-size: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.faq-section .accordion-item button.collapsed {
+  color: #000 !important;
+}
+.faq-section .accordion-item button.collapsed:before {
+  transform: rotate(-90deg);
+}
+.faq-section .card-header {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.faq-section .accordion-collapse {
+  border: 0;
+}
+.faq-section .accordion-collapse .card-body {
+  background-color: #f6fafc;
+  padding: 20px;
+}
+.faq-section .card-body .text-para:last-child {
+  margin-bottom: 0;
+}
+
+/* ======================= FAQ Section Css Only ======================= */
+
+/* ======================= Products Details Section Css Only ======================= */
+
+.sidebar-white-bg {
+  background-color: #fff;
+  box-shadow: 0 4px 14px 0px rgb(0 0 0 / 9%);
+  border: 1px solid #e1e1e1;
+}
+.sidebar-inner-box {
+  margin-bottom: 20px;
+}
+.sidebar-title {
+  font-family: "Playfair-Bold";
+  font-size: 22px;
+  text-transform: capitalize;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c7a700;
+}
+.search-bar .btn {
+  height:42px;
+  line-height: 42px;
+  padding: 0px 15px;
+}
+.height-checkbox {
+  position: relative;
+  margin: 10px 0;
+}
+.height-checkbox input {
+  display: none;
+}
+.height-checkbox label {
+  font-size: 16px;
+  color: #000;
+  display: inline-block;
+  padding: 0 0 0 25px;
+  font-family: "Nunito-SemiBold";
+  cursor: pointer;
+}
+.height-checkbox label:before {
+  content: "";
+  display: inline-block;
+  background: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  transition: border 0.3s ease;
+}
+.height-checkbox input:checked + label:before {
+  border-color: #e60013;
+}
+.height-checkbox input + label {
+  transition: color 0.4s ease;
+}
+.height-checkbox input:checked + label {
+  color: #e60013;
+}
+.prodSortSliderCarousel .prod-img {
+  border-radius: 0;
+  height: 320px;
+}
+.bottle-qty-info {
+  background-color: #e60013;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  left: 0;
+  min-width: 70px;
+  padding: 5px 10px;
+  border-radius: 0px 20px 20px 0px;
+}
+.buy-prod-btn {
+  margin: 50px 0;
+  text-align: center;
+}
+.buy-prod-btn .btn {
+  max-width: 320px;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: "Nunito-Bold";
+  font-size: 20px;
+}
+.prod-inner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+  margin-bottom: 30px;
+}
+.prod-inner-header h5 {
+  font-family: "Playfair-Bold";
+  margin-bottom: 0;
+}
+.prod-inner-header .prod-inner-name {
+  font-size: 26px;
+  text-transform: capitalize;
+}
+.prod-inner-header .prod-origin {
+  font-size: 16px;
+  color: #4a5874;
+}
+.prod-info-list {
+  display: flex;
+  margin-bottom: 15px;
+}
+.prod-info-title {
+  color: #000;
+  font-family: "Nunito-Bold";
+  margin-bottom: 0;
+  font-size: 16px;
+  max-width: 145px;
+  min-width: 145px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.text-separator {
+  margin: 0 5px;
+}
+.prod-info-list .text-para {
+  flex: 1;
+  margin-bottom: 0;
+  padding-left: 25px;
+}
+.prod-info-gallery-shell {
+  margin: 40px -10px;
+  overflow: auto;
+  padding: 10px;
+  display: flex;
+}
+.prod-info-gallery-list {
+  margin-right: 30px;
+  box-shadow: 0 0px 6px 0px rgb(0 0 0 / 25%);
+  border: 8px solid #fff;
+  border-radius: 4px;
+  flex: 0 0 230px;
+  overflow: hidden;
+  max-width: 230px;
+  height: 200px;
+}
+.prod-info-gallery-list .prod-gall-img {
+  width: 100%;
+  height: 100%;
+}
+.prod-gall-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.prod-download-shell .down-links {
+  font-size: 18px;
+  color: #e60013;
+  font-family: "Nunito-Bold";
+}
+.prod-download-shell li {
+  position: relative;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+.prod-download-shell li::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  left: 0;
+  top: 7px;
+  background-color: #e60013;
+}
+.tastebar {
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  list-style: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.tastebar-step {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+.tastebar-step:before {
+  content: "";
+  height: 3px;
+  background-color: #4a5874;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: -50%;
+  top: 50%;
+  transition: all 0.25s ease-out;
+}
+.tastebar-step:first-child:before {
+  display: none;
+}
+.tastebar-icon {
+  width: 13px;
+  height: 13px;
+  background-color: #4a5874;
+  border-radius: 50%;
+  max-width: 100%;
+  z-index: 2;
+  position: relative;
+  transition: all 0.25s ease-out;
+}
+.tastebar-stepLabel {
+  display: block;
+  color: #4a5874;
+  position: absolute;
+  width: 100%;
+  transition: all 0.25s ease-out;
+  top: -15px;
+  font-family: "Nunito-Bold";
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.salmon-text .tastebar-stepLabel {
+  color: #c7a700;
+}
+.salmon-text .tastebar-icon {
+  background-color: #c7a700;
+}
+.bar-red-text .tastebar-stepLabel {
+  color: #e60013;
+}
+.bar-red-text .tastebar-icon {
+  background-color: #e60013;
+}
+.serve-temp-info {
+  padding: 0 15px;
+}
+.serve-temp-list {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.serve-type-icon {
+  flex: 0 0 32px;
+  max-width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+.serve-type-icon img {
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: scale-down;
+}
+.serve-name-title {
+  margin: 0;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-family: "Nunito-Bold";
+}
+.serve-name-title span {
+  display: block;
+  font-size: 14px;
+  color: #4a5874;
+  font-family: "Nunito-Light";
+}
+.drink-rating {
+  margin-left: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 14px 0px rgb(0 0 0 / 9%);
+  border: 1px solid #e1e1e1;
+  border-radius: 30px;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+}
+.drink-rating i {
+  margin: 0 2px;
+  height: 16px;
+  width: 16px;
+}
+
+/* ======================= Products Details Section Css Only ======================= */
+
+/* ======================= How Sake Is Made Section Css Only ======================= */
+
+.sake-made-shell {
+  max-width: 950px;
+  margin: auto;
+  background-image: url("../images/sake-made-bg-img.png");
+  background-position: -55px 100px;
+  background-repeat: no-repeat;
+  padding: 0 110px;
+}
+.sake-made-points {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+}
+.sake-made-points .figcaption {
+  margin-left: 50px;
+}
+.sake-made-points:nth-child(even) .figcaption {
+  margin-left: 0;
+  margin-right: 50px;
+  text-align: right;
+}
+.sake-made-points:nth-child(even) figure {
+  margin-left: 0;
+  margin-right: -30px;
+}
+.sake-made-points figure {
+  flex: 0 0 250px;
+  max-width: 250px;
+  height: 260px;
+  background-color: #fff;
+  margin-left: 30px;
+}
+.sake-made-points figure img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+.sake-made-title {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-family: "Playfair-Bold";
+  color: #e60013;
+}
+.sake-made-para {
+  font-size: 18px;
+  color: #4a5874;
+  margin-bottom: 0;
+  font-family: "Montserrat-Medium";
+}
+
+/* ======================= How Sake Is Made Section Css Only ======================= */
+
+/* ======================= History Section Css Only ======================= */
+
+.timeline-shell {
+  position: relative;
+  margin: 50px 0;
+}
+.timeline-shell:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: #4a5874;
+}
+.timeline-shell .entries {
+  width: calc(100% - 80px);
+  max-width: 1140px;
+  padding: 30px 0;
+  margin: auto;
+  position: relative;
+  left: -7px;
+}
+.timeline-shell .entries .entry {
+  width: calc(50% - 80px);
+  text-align: right;
+  position: relative;
+}
+.timeline-shell .entries .entry:not(:first-child) {
+  margin-top: -60px;
+}
+.timeline-shell .entries .entry:nth-child(odd) .title {
+  right: -30px;
+}
+.timeline-shell .entries .entry:nth-child(even) .title {
+  left: -30px;
+}
+.timeline-shell .entries .entry:nth-child(even) .title:after {
+  right: initial;
+  left: -45px;
+}
+.timeline-shell .entries .entry:nth-child(odd) {
+  text-align: right;
+  margin-right: auto;
+}
+.timeline-shell .entries .entry:nth-child(even) {
+  text-align: left;
+  margin-left: auto;
+}
+.timeline-shell .entries .entry .title {
+  position: absolute;
+  top: 30%;
+}
+.timeline-shell .entries .entry .title .text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  background-color: #e60013;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-shell .entries .entry .title:before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  background-color: #e60013;
+  border-radius: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -64px;
+  z-index: 1;
+}
+.timeline-shell .entries .entry .title:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #4a5874;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -54px;
+  z-index: 0;
+}
+.timeline-shell .entries .entry:nth-child(2n) .title:before {
+  left: -50px;
+  right: initial;
+}
+.timeline-shell .sec-head-para {
+  padding: 0;
+}
+.timeline-img {
+  height: 313px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 20px;
+}
+.timeline-shell .entries:before {
+  top: 0;
+}
+.timeline-shell .entries:after {
+  bottom: 0;
+}
+.timeline-shell .entries:before,
+.timeline-shell .entries:after {
+  content: "";
+  position: absolute;
+  background-color: #4a5874;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  z-index: 2;
+  left: 50%;
+}
+
+.active_url
+{
+  color: #dc3545;
+}
+
+
+.sepe-search-bar {
+  text-align: center;
+  max-width: 455px;
+  margin: 0 auto 20px;
+}
+/* ======================= History Section Css Only ======================= */
+
+
+/* ======================= Warning Modal Css Only ======================= */
+
+.legalwarnmodal {
+  text-align: center;
+}
+.legalwarnmodal .modal-content {
+  border-radius: 0;
+  border: 0;
+}
+.legalwarnmodal .modal-body {
+  padding: 3rem 2rem;
+}
+.legalwarnmodal .modal-icon {
+  margin-bottom: 2rem;
+}
+.legalwarnmodal .modal-content h4 {
+  font-family: "Playfair-Bold";
+  font-size: 22px;
+}
+.legalwarnmodal .modal-content p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.legalwarnmodal .btn-shell {
+  margin: 16px 0;
+}
+.legalwarnmodal .btn-shell .btn {
+  min-width: 130px;
+  margin: 0 6px;
+}
+.grey-bg {
+  background-color: #8b8b8b;
+}
+
+/* ======================= Warning Modal Css Only ======================= */
+
+
+.sidebar-inner-box ul li a{
+  font-size: 16px;
+  color: #000;
+  display: inline-block;
+  padding: 0 0 0 25px;
+  text-decoration: none;
+  font-family: "Nunito-SemiBold";
+  cursor: pointer;
+  display: block;
+  padding: 0px 25px;
+  margin: 10px 0px;
+  border-left:solid 6px transparent;
+}
+.sidebar-inner-box ul li.active a{
+  border-left:solid 6px #e60013;
+  color:#e60013;
+}
+
+.product-filter-inner{
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-bottom: 20px;
+}
+.size-box{
+  position: relative; margin-right: 15px; z-index: 2;
+}
+.size-box .size-btn{
+  border:solid 1px #dfe5e8 !important; 
+  color:#212529; 
+  background: #fff; 
+  height: 42px; 
+  line-height: 42px; border: none; 
+  padding: 0px 60px 0px 15px; 
+  text-decoration: none; 
+  position: relative; 
+  display: inline-block; 
+  cursor: pointer;
+}
+.size-box .size-btn:after{
+  content: "";
+  border-top: solid 7px #dfe5e8; 
+  border-left:solid 7px transparent; 
+  border-right:solid 7px transparent; 
+  position: absolute; 
+  right: 10px; 
+  top:18px;
+}
+.size-options{
+  position: absolute; 
+  border: solid 1px #dfe5e8; 
+  width: 170px; 
+  padding: 15px; 
+  margin-top: -1px; 
+  background: #fff;
+} 
+.product-filter-inner .sepe-search-bar{
+  margin: 0;
+}
+.product-filter-inner .sepe-search-bar .form-control{
+  min-width: 365px;
+}
+
+
+
+/* div#map,div#map svg{text-align: center; margin:auto; } */
+
+
+.bg_banner_coming img {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.map-bg{padding:20px 20px 0;max-width:1200px; height:650px;position:relative; margin: auto;}
+
+.download-btn span{padding-left: 5px;}
+
+
+
+
+
+
+
+
+
+
+
+

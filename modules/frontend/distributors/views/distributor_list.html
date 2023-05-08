@@ -1,0 +1,64 @@
+
+  
+<div class="gradient-wrapper">
+
+    <!-- Heading Section Starts -->
+
+    <section class="section-padding pb-0">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h3 class="sec-head-title">Ozeki Sake U.S. <span class="text-red">Distributors</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heading Section Ends -->
+
+    <!-- Distributor Section Starts -->
+
+    <section class="distributor-section section-padding pb-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="distributor-content-box">
+                        <div class="distributor-content-shell">
+                            <%
+                                if(result && result.length > 0){
+                                    result.map((records,index)=>{
+                                        let stateName = (records._id) ? records._id : 'N/A'
+                                        %>
+                                        <h5 class="dist-title"><%= stateName%></h5>
+                                        <ul class="dist-list">
+                                            <%
+                                                records.distributors.map((distributors,index)=>{
+                                                    let name    = (distributors.name)       ? distributors.name : 'N/A'
+                                                    let address = (distributors.address)    ? distributors.address : 'N/A'
+                                                    %>
+                                                    <li class="dist-info-box">
+                                                        <h4 class="dist-name"><%= name%></h4>
+                                                        <p class="dist-address"><%- nl2br(address)%></p>
+                                                    </li>
+                                            <%  }) %>
+                                        </ul>
+                                <%  })
+                                }
+                            %>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Distributor Section Ends -->
+
+    <!-- Subscription Section Starts -->
+
+    <%- include("../../elements/newsletter.html");%>
+
+    <!-- Subscription Section Ends -->
+
+</div>
+
+	

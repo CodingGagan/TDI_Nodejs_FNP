@@ -1,0 +1,57 @@
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-sm-3">
+                <a href="/" class="navbar-brand">
+                    <img src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/images/black-icon.svg" alt="site-icon">
+                </a>
+            </div>
+            <div class="col-xl-4 col-sm-4">
+                <p class="copyright-text"><%= settings['Site.copyright_text']%></p>
+            </div>
+            <div class="col-xl-5 col-sm-5">
+                <ul class="social-icons-shell">
+                    <li class="social-icon"> 
+                        <a href="<%= WEBSITE_URL%>privacy-policy" class="btn">Privacy&nbsp;Policy</a>
+                    </li>
+                    <%
+                        if(settings['Site.social.facebook_link']){ 
+                            %>
+                            <li class="social-icon">
+                                <a class="social-icon-btn" target="_blank" href="<%= settings['Site.social.facebook_link']%>"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                        <%}
+                    
+                        if(settings['Site.social.twitter_link']){ 
+                            %>
+                            <li class="social-icon">
+                                <a class="social-icon-btn" target="_blank" href="<%= settings['Site.social.twitter_link']%>"><i class="fab fa-twitter"></i></a>
+                            </li>
+                        <%}
+                   
+                        if(settings['Site.social.instagram_link']){ 
+                            %>
+                            <li class="social-icon">
+                                <a class="social-icon-btn" target="_blank" href="<%= settings['Site.social.instagram_link']%>"><i class="fab fa-instagram"></i></a>
+                            </li>
+                        <%}
+                    
+                        if(settings['Site.social.youtube_link']){ 
+                            %>
+                            <li class="social-icon">
+                                <a class="social-icon-btn" target="_blank" href="<%= settings['Site.social.youtube_link']%>"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        <%}
+                    %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script
+  data-cookie-notice='{ "learnMoreLinkEnabled": true, "learnMoreLinkHref": "/privacy-policy" }'
+  src="https://unpkg.com/cookie-notice@^1/dist/cookie.notice.min.js"
+>
+</script> 

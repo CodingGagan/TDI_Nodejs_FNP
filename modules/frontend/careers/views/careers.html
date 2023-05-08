@@ -1,0 +1,94 @@
+
+<div class="gradient-wrapper">
+
+    <!-- Heading Section Starts -->
+
+    <section class="section-padding pb-0">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h3 class="sec-head-title">Careers at <span class="text-red">Ozeki Sake USA</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heading Section Ends -->
+
+    <!-- Careers Section Starts -->
+
+    <section class="careers-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="contact-us-form-box">
+                        <form id="careers_form" data-submit-btn-id="careers-add-btn-id" method="post" class="on_click_submit" role="form">
+                            <div class="checkbox-outer-shell mb-4 " >
+                                <label class="form-label strong-label">Please Select Job Position<sup class="mandat-star">*</sup></label>
+                                <div class="form-group">
+                                    <% if(result && result.length > NOT){
+                                        result.map((records, index)=>{ %>
+                                            <div class="checkboxshell ">
+                                                <input  class="cbxcls job-position" type="radio" name="job_id" id="bottling_sup_<%= index%>" value="<%= records._id%>"/>
+                                                <label class="cbx" for="bottling_sup_<%= index%>"></label>
+                                                <label class="lbl" for="bottling_sup_<%= index%>"><%= records.name%>
+                                                    <a href="#!" class="red-link job-link">Job Description</a> 
+                                                </label>
+                                            </div>
+                                        <% })
+                                    }%>
+                                    <span id="job_id_error" class="mandat-star"></span>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">First name <sup class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name">
+                                <span id="first_name_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">last name <sup class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
+                                <span id="last_name_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">email <sup class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" placeholder="Email" id="email" name="email">
+                                <span id="email_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Telephone (Format: 999-999-9999) <sup
+                                        class="mandat-star">*</sup></label>
+                                <input type="text" class="form-control" placeholder="Phone Number" id="telephone" name="telephone">
+                                <span id="telephone_error" class="mandat-star"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Please upload your resume document <sup
+                                        class="mandat-star">*</sup></label>
+                                <div class="file-group">
+                                    <i><img src="<%= WEBSITE_PUBLIC_IMG_URL%>assets/images/red-file-upload.svg"></i>
+                                    <p class="file-text">Drag & Drop File or <span class="red-text">Browse</span></p>
+                                    <input type="file" class="form-control" name="resume" id="resume" multiple>
+                                </div>
+                                <span class="file-info-text">(pdf, doc or zip multiple files are accepted.)</span>
+                                <span id="resume_error" class="mandat-star"></span>
+                            </div>
+
+                            <div class="btn-shell form-btn-shell">
+                                <button class="btn btn-submit" id="careers-add-btn-id" type="button" >submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section Ends -->
+
+    <!-- Subscription Section Starts -->
+
+    <%- include("../../elements/newsletter.html");%>
+
+    <!-- Subscription Section Ends -->
+
+</div>
+
+
