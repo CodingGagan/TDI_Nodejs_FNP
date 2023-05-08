@@ -58,7 +58,7 @@
     "xlsx": "^0.12.13"
   },
   "scripts": {
-    "build", "npm run build",
+    "build": "npm run build",
     "start": "node index"
   },
   "author": "Fullestop",
